@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(ThrustController2D))]
-public class ShipPartMovement : MonoBehaviour
+public class ShipPartMovement : EffectsSoundDevice
 {
     private ThrustController2D controller;
 
@@ -24,6 +24,13 @@ public class ShipPartMovement : MonoBehaviour
     // Track selection
     private bool mouseOver = false;
 
+    [SerializeField]
+    private AudioClip[] thrusterSoundAray;
+    [SerializeField]
+    private float thrusterVolume;
+
+    private AudioSource thrusterSource;
+
     private void Awake()
     {
         controller = GetComponent<ThrustController2D>();
@@ -32,7 +39,7 @@ public class ShipPartMovement : MonoBehaviour
         thrusterTopRight = transform.Find("ThrusterTopRight").GetComponent<ShipPartThruster>();
         thrusterBottomLeft = transform.Find("ThrusterBottomLeft").GetComponent<ShipPartThruster>();
         thrusterBottomRight = transform.Find("ThrusterBottomRight").GetComponent<ShipPartThruster>();
-
+        thrusterSource = Utils.AddAudioNoFalloff(gameObject, null, true, false, thrusterVolume * PlayerPrefs.GetFloat("EffectsVolume"), 1f);
         DetachThrusters();
     }
 
@@ -121,5 +128,10 @@ public class ShipPartMovement : MonoBehaviour
         thrusterTopRight.gameObject.SetActive(false);
         thrusterBottomLeft.gameObject.SetActive(false);
         thrusterBottomRight.gameObject.SetActive(false);
+    }
+
+    override public void updateSound()
+    {
+        thrusterSource.volume = thrusterVolume * PlayerPrefs.GetFloat("EffectsVolume");
     }
 }

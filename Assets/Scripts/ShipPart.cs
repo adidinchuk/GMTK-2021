@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShipPart : MonoBehaviour
+public class ShipPart : EffectsSoundDevice
 {
     public int jointBreakingForce = 100;
     public float allowJointsTimerMax = 2f;
@@ -14,10 +14,28 @@ public class ShipPart : MonoBehaviour
     private Collider2D collider2d;    
     private Rigidbody2D rigidbody2d;
 
+    [SerializeField]
+    private AudioClip[] fuseSoundAray;
+    [SerializeField]
+    private float fuseVolume;
+
+    private AudioSource fuseSource;
+
+    [SerializeField]
+    private AudioClip[] breakSoundAray;
+    [SerializeField]
+    private float breakVolume;
+
+    private AudioSource breakSource;
+
+
     private void Awake()
     {
         collider2d = gameObject.GetComponent<Collider2D>();
         rigidbody2d = gameObject.GetComponent<Rigidbody2D>();
+        fuseSource = Utils.AddAudioNoFalloff(gameObject, null, false, false, fuseVolume * PlayerPrefs.GetFloat("EffectsVolume"), 1f);
+        breakSource = Utils.AddAudioNoFalloff(gameObject, null, false, false, breakVolume * PlayerPrefs.GetFloat("EffectsVolume"), 1f);
+
     }
 
     private void OnMouseEnter()
@@ -60,6 +78,8 @@ public class ShipPart : MonoBehaviour
         joint.breakForce = 100;
         joint.breakTorque = 100;
 
+        playSound(fuseSoundAray, fuseSource);
+
     }
 
     public void removeJointsConnectedTo(GameObject other)
@@ -94,6 +114,7 @@ public class ShipPart : MonoBehaviour
             Destroy(fixedJoints[i]);
         }
 
+        playSound(breakSoundAray, breakSource);
 
         // Send in random direction with collider2d disabled for a few seconds
         Vector2 direction = Utils.GetRandomDirection() ;
@@ -101,5 +122,17 @@ public class ShipPart : MonoBehaviour
         gameObject.GetComponent<Rigidbody2D>().AddForce(direction * force);
         allowJoints = false;
         allowJointsTimer = allowJointsTimerMax;
+    }
+
+    private void playSound(AudioClip[] array, AudioSource source)
+    {
+        source.clip = array[Random.Range(0, array.Length)];
+        source.Play();
+    }
+
+    override public void updateSound()
+    {
+        fuseSource.volume = fuseVolume * PlayerPrefs.GetFloat("EffectsVolume");
+        breakSource.volume = breakVolume * PlayerPrefs.GetFloat("EffectsVolume");
     }
 }
