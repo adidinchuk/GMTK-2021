@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4282948829407955520}
   - component: {fileID: 2946591716458526515}
   - component: {fileID: 6228363880361270324}
+  - component: {fileID: 7037529316701681822}
   m_Layer: 0
   m_Name: MeteorBrownSmall
   m_TagString: Untagged
@@ -119,9 +120,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.008947745, y: -0.008594006}
+  m_Offset: {x: -0.0005104095, y: -0.0021868348}
   serializedVersion: 2
-  m_Radius: 0.12885717
+  m_Radius: 0.14045067
 --- !u!114 &6228363880361270324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,4 +136,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  impactVFX: {fileID: 2063216117066402774, guid: b17daa298970bc9439f5022b859efa92, type: 3}
+  impactVFX: {fileID: 1170567192047786, guid: 39563546806bcef439fef3206a384796, type: 3}
+--- !u!58 &7037529316701681822
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5250643544586531000}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.14

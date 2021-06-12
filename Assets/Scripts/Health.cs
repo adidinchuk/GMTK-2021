@@ -43,6 +43,9 @@ public class Health : MonoBehaviour
 
     private void UpdateSprite()
     {
-        GetComponent<SpriteRenderer>().color = new Color(health / startHealth, health / startHealth, health / startHealth, 1f);
+        foreach (SpriteRenderer renderer in GetComponentsInChildren<SpriteRenderer>())
+        {
+            renderer.color = new Color(health / startHealth, health / startHealth, health / startHealth, 1f);
+        }
     }
 }

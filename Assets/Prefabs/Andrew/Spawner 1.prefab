@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3493471831208311790
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3493471831208311788}
+  - component: {fileID: 3493471831208311791}
+  m_Layer: 0
+  m_Name: Spawner 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3493471831208311788
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3493471831208311790}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3493471831208311791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3493471831208311790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56f10744f68699b41a88b36dcca8e211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabled: 1
+  spawnRadius: 20
+  spawnObjectPrefab:
+  - {fileID: 5786479419115872913, guid: e9d0e0b6f742dc444b02244e0acd032e, type: 3}
+  - {fileID: 5786479419115872913, guid: 6c2fd5647833e414d904f0f309be470e, type: 3}
+  - {fileID: 5786479419115872913, guid: 2fc03ddd2adddfa44a03774bf34cf000, type: 3}
+  - {fileID: 5786479419115872913, guid: 4e454e4dcfa9a634a984b6ce90a7ab47, type: 3}
+  - {fileID: 5250643544586531000, guid: e534ec9d6ee6a064c993b390de7224e4, type: 3}
+  - {fileID: 5966585218382916551, guid: d67e63b86cb91254d802784a69f67b5d, type: 3}
+  - {fileID: 916474784931308018, guid: 71ebe068f01a19741a2609e63a377334, type: 3}
+  minVelocity: 20
+  maxVelocity: 150
+  minSpawnDelay: 1
+  maxSpawnDelay: 1
+  zAxisRandomization: 1
+  zAxisRotation: 1
+  maxZAxisRotationSpeed: 20
+  angleRandomization: 20

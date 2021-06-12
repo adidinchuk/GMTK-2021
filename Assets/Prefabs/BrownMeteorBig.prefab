@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8817121223621272331}
   - component: {fileID: 5831183170970772789}
   - component: {fileID: 7645408470890302604}
+  - component: {fileID: 4065427368485032273}
   m_Layer: 0
   m_Name: BrownMeteorBig
   m_TagString: Untagged
@@ -135,4 +136,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  impactVFX: {fileID: 2063216117066402774, guid: b17daa298970bc9439f5022b859efa92, type: 3}
+  impactVFX: {fileID: 1170567192047786, guid: 39563546806bcef439fef3206a384796, type: 3}
+--- !u!58 &4065427368485032273
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 916474784931308018}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.505

@@ -11,13 +11,13 @@ public class ShipPart : MonoBehaviour, Graph<ShipPart>
     private bool mouseOver = false;
     private float allowJointsTimer = 0f;
     private bool allowJoints = true;
-    private BoxCollider2D collider2d;
+    private Collider2D collider2d;    
     private Rigidbody2D rigidbody2d;
     public int score = 100;
 
     private void Awake()
     {
-        collider2d = gameObject.GetComponent<BoxCollider2D>();
+        collider2d = gameObject.GetComponent<Collider2D>();
         rigidbody2d = gameObject.GetComponent<Rigidbody2D>();
     }
 

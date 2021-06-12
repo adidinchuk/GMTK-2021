@@ -7,6 +7,7 @@ public class ShipPartThruster : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
+    [SerializeField] ParticleSystem thrustSFX;
 
 
     private bool thrustThisUpdate = false;
@@ -26,6 +27,11 @@ public class ShipPartThruster : MonoBehaviour
         if (!thrustThisUpdate)
         {
             spriteRenderer.color = originalColor;
+            thrustSFX.Stop();
+        }
+        else
+        {
+            thrustSFX.Play();
         }
 
         thrustThisUpdate = false;
@@ -36,7 +42,7 @@ public class ShipPartThruster : MonoBehaviour
 
     public void Thrust()
     {
-        spriteRenderer.color = Color.red;
+        //spriteRenderer.color = Color.red;
         thrustThisUpdate = true;
     }
 }
