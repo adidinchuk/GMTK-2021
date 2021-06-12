@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  impactVFX: {fileID: 2296432800694265953, guid: bf9d43589a24c4842a9ac9fc9574635e, type: 3}
+  impactVFX: {fileID: 1170567192047786, guid: 39563546806bcef439fef3206a384796, type: 3}
 --- !u!58 &4065427368485032273
 CircleCollider2D:
   m_ObjectHideFlags: 0
