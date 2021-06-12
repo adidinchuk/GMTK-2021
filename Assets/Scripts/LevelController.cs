@@ -8,7 +8,8 @@ public class LevelController : MonoBehaviour
     public CinemachineVirtualCamera vcam;
 
     public ShipPart mainShipPrefab;
-    public Spawner spawnerPrefab;
+    public Spawner meteorSpawnerPrefab;
+    public Spawner shipPartSpawnerPrefab;
     public Goal goalPrefab;
     public GameUI gameUI;
 
@@ -17,8 +18,8 @@ public class LevelController : MonoBehaviour
 
     private GameObject goalInstance;
     private GameObject mainShipInstance;
-    private GameObject spawnerInstance;
-
+    private GameObject meteorSpawnerInstance;
+    private GameObject shipPartSpawnerInstance;
 
     private void Start()
     {
@@ -30,8 +31,11 @@ public class LevelController : MonoBehaviour
         vcam.Follow = mainShipInstance.transform;
 
         // Start spawners
-        spawnerInstance = Instantiate(spawnerPrefab.gameObject);
-        spawnerInstance.transform.SetParent(mainShipInstance.transform);
+        meteorSpawnerInstance = Instantiate(meteorSpawnerPrefab.gameObject);
+        meteorSpawnerInstance.transform.SetParent(mainShipInstance.transform);
+
+        shipPartSpawnerInstance = Instantiate(shipPartSpawnerPrefab.gameObject);
+        shipPartSpawnerInstance.transform.SetParent(mainShipInstance.transform);
 
         // Spawn stars / Background?
 

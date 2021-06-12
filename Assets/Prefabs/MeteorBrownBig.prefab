@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7645408470890302604}
   - component: {fileID: 4065427368485032273}
   m_Layer: 0
-  m_Name: BrownMeteorBig
+  m_Name: MeteorBrownBig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

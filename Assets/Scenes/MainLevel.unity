@@ -578,7 +578,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vcam: {fileID: 1017807176}
   mainShipPrefab: {fileID: 4770883174930814530, guid: a9be9c97abdc3114baabe61cf43b5a0d, type: 3}
-  spawnerPrefab: {fileID: 3493471831208311791, guid: f17bd7dc12aefeb4e86b2709b5ada298, type: 3}
+  meteorSpawnerPrefab: {fileID: 3493471831208311791, guid: 44a0a52eec1684b459552ffa212b562c, type: 3}
+  shipPartSpawnerPrefab: {fileID: 3493471831208311791, guid: f17bd7dc12aefeb4e86b2709b5ada298, type: 3}
   goalPrefab: {fileID: 5669807556860936155, guid: 224daa5052a38d8408dfac796fa86957, type: 3}
   gameUI: {fileID: 347703686}
   pauseMenu: {fileID: 263114551}
