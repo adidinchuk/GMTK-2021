@@ -33,7 +33,8 @@ public class GameUI : MonoBehaviour
         goalPositionIndicator.anchoredPosition = directionToGoal * goalIndicatorRadius;
         goalPositionIndicator.eulerAngles = new Vector3(0, 0, Utils.GetAngleFromVector(directionToGoal));
 
-
+        float distanceToGoal = Vector2.Distance(goalPosition, Camera.main.transform.position)  ;
+        goalDistanceText.SetText(distanceToGoal.ToString("F1") + " km");
 
     }
 }

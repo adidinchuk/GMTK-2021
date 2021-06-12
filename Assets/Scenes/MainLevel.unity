@@ -274,7 +274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 943c90c76ad98de4fbb02ec0f755b3a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goalIndicatorRadius: 300
+  goalIndicatorRadius: 400
 --- !u!1 &495014184
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,9 +305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainShip: {fileID: 4770883174930814530, guid: a9be9c97abdc3114baabe61cf43b5a0d, type: 3}
-  shipPartSpawner: {fileID: 0}
-  meteorSpawner: {fileID: 0}
-  backgroundSpawner: {fileID: 0}
+  spawner: {fileID: 3493471831208311791, guid: f17bd7dc12aefeb4e86b2709b5ada298, type: 3}
   goal: {fileID: 5669807556860936155, guid: 224daa5052a38d8408dfac796fa86957, type: 3}
   vcam: {fileID: 1017807176}
 --- !u!4 &495014186
@@ -381,7 +379,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 300
+  m_text: 100 pts
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -572,7 +570,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 2
+    OrthographicSize: 6
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -634,7 +632,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 787, y: 466}
+  m_AnchoredPosition: {x: 769, y: 466}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1143041179
@@ -657,7 +655,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 300
+  m_text: ' 10 km'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -941,7 +939,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 2
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5786479419115872913, guid: 3e5a8c25365d3584385f79206cee4f7a, type: 3}
       propertyPath: m_Name
-      value: MainShipPart
+      value: MainShipPart Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5786479419115872914, guid: 3e5a8c25365d3584385f79206cee4f7a, type: 3}
       propertyPath: m_RootOrder
@@ -76,12 +76,20 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5786479419115872918, guid: 3e5a8c25365d3584385f79206cee4f7a, type: 3}
+      propertyPath: maxMoveSpeed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5786479419115872918, guid: 3e5a8c25365d3584385f79206cee4f7a, type: 3}
       propertyPath: moveAcceleration
-      value: 50
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 5786479419115872918, guid: 3e5a8c25365d3584385f79206cee4f7a, type: 3}
       propertyPath: turnAcceleration
-      value: 15
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5786479419115872918, guid: 3e5a8c25365d3584385f79206cee4f7a, type: 3}
+      propertyPath: maxAngularVelocity
+      value: 300
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e5a8c25365d3584385f79206cee4f7a, type: 3}

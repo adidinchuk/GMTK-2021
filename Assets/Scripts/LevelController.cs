@@ -7,9 +7,7 @@ public class LevelController : MonoBehaviour
 {
 
     public ShipPart mainShip;
-    public GameObject shipPartSpawner;
-    public GameObject meteorSpawner;
-    public GameObject backgroundSpawner;
+    public Spawner spawner;
     public Goal goal;
     public CinemachineVirtualCamera vcam;
 
@@ -30,10 +28,12 @@ public class LevelController : MonoBehaviour
         vcam.Follow = mainShipInstance.transform;
 
 
-
-        // Spawn stars
-
         // Start spawners
+        Instantiate(spawner.gameObject);
+
+        // Spawn stars / Background?
+
+
 
 
 
@@ -42,6 +42,6 @@ public class LevelController : MonoBehaviour
 
     }
 
- 
+
 
 }
