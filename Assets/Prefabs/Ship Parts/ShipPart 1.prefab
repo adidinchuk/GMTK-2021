@@ -261,6 +261,8 @@ GameObject:
   - component: {fileID: 5786479419115872918}
   - component: {fileID: 4458344802069141524}
   - component: {fileID: 7680706251217068185}
+  - component: {fileID: 3177105239148484462}
+  - component: {fileID: -603711186735858391}
   m_Layer: 0
   m_Name: ShipPart 1
   m_TagString: Untagged
@@ -392,6 +394,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthAmountMax: 100
+--- !u!114 &3177105239148484462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5786479419115872913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e02f7d3add599c47a923b13d88d4203, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+--- !u!114 &-603711186735858391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5786479419115872913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10dd27016159f054889b30e751d25195, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathVFX: {fileID: 1129778909008140308, guid: a6b2ed8fb1e04fd4a8713456976fd765, type: 3}
 --- !u!1001 &3407815723050096503
 PrefabInstance:
   m_ObjectHideFlags: 0

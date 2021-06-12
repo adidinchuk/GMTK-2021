@@ -11,12 +11,12 @@ public class Meteor : MonoBehaviour
     {      
         var health = collision.GetComponent<Health>();
         var entity = collision.GetComponent<Entity>(); ;
-        Debug.Log("triggered");
+        
         if (entity && health)
         {
             health.DealDamage(damage);
             var vfx = Instantiate(impactVFX, transform.position, transform.rotation);
-            Destroy(vfx, 0.7f);
+            Destroy(vfx, 0.3f);
             Destroy(gameObject);
         }
     }

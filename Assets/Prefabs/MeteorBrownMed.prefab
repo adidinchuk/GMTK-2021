@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1065774596066817809}
   - component: {fileID: 5130561325275094314}
   - component: {fileID: 8526524329733322583}
+  - component: {fileID: -7423504413977675836}
   m_Layer: 0
   m_Name: MeteorBrownMed
   m_TagString: Untagged
@@ -119,9 +120,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.008947745, y: -0.0010360479}
+  m_Offset: {x: 0.006736189, y: -0.0010360479}
   serializedVersion: 2
-  m_Radius: 0.21077305
+  m_Radius: 0.20856151
 --- !u!114 &8526524329733322583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,4 +136,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 3
-  impactVFX: {fileID: 2063216117066402774, guid: b17daa298970bc9439f5022b859efa92, type: 3}
+  impactVFX: {fileID: 2296432800694265953, guid: bf9d43589a24c4842a9ac9fc9574635e, type: 3}
+--- !u!58 &-7423504413977675836
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5966585218382916551}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.00619404, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.20880596

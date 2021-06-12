@@ -425,6 +425,8 @@ GameObject:
   - component: {fileID: 4458344802069141524}
   - component: {fileID: 7680706251217068185}
   - component: {fileID: 2277457431516732492}
+  - component: {fileID: 8471294412358022696}
+  - component: {fileID: -4360862785676529251}
   m_Layer: 0
   m_Name: ShipPart 4
   m_TagString: Untagged
@@ -576,6 +578,32 @@ PolygonCollider2D:
       - {x: 0.53952444, y: -0.47699535}
       - {x: 0.46971542, y: -0.5491245}
       - {x: 0.1245303, y: -0.5380863}
+--- !u!114 &8471294412358022696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5786479419115872913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e02f7d3add599c47a923b13d88d4203, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+--- !u!114 &-4360862785676529251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5786479419115872913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10dd27016159f054889b30e751d25195, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathVFX: {fileID: 1129778909008140308, guid: a6b2ed8fb1e04fd4a8713456976fd765, type: 3}
 --- !u!1001 &3407815723050096503
 PrefabInstance:
   m_ObjectHideFlags: 0
