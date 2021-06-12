@@ -11,7 +11,11 @@ public class Meteor : MonoBehaviour
     {      
         var health = collision.GetComponent<Health>();
         var entity = collision.GetComponent<Entity>(); ;
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> cory
         if (entity && health)
         {
             health.DealDamage(damage);
