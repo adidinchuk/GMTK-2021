@@ -29,12 +29,9 @@ public class LevelController : MonoBehaviour
 
 
         // Start spawners
-        Instantiate(spawner.gameObject);
-
+        GameObject spawnerInstance = Instantiate(spawner.gameObject);
+        spawnerInstance.transform.SetParent(mainShipInstance.transform);
         // Spawn stars / Background?
-
-
-
 
 
 
