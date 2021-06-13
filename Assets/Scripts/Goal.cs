@@ -8,7 +8,8 @@ public class Goal : MonoBehaviour
     private int targetWeight;
     private bool goalReached = false;
 
-
+    [SerializeField] Sprite[] sprites;
+    private SpriteRenderer spriteRenderer;
 
 
     // TODO: Add a visual for the current goal
@@ -29,10 +30,20 @@ public class Goal : MonoBehaviour
         return goal;
     }
 
-    //public void SetTargetWeight(int targetWeight)
-    //{
-    //   
-    //}
+    public void Awake()
+    {
+        if (sprites.Length > 0) {
+
+            spriteRenderer = transform.Find("sprite").GetComponent<SpriteRenderer>();
+            spriteRenderer.sprite = sprites[UnityEngine.Random.Range(0, sprites.Length)];
+        } 
+        else
+        {
+            Debug.LogWarning("No sprites set for goal: " + name);
+        }
+
+    }
+
 
     public int GetTargetWeight()
     {
