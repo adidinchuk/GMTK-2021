@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelController : MonoBehaviour
 {
@@ -95,8 +96,10 @@ public class LevelController : MonoBehaviour
     public void LevelLost()
     {
         Time.timeScale = 0;
+        int totalWeightDelivered = mainShip.GetTotalWeightDelivered();
+        string scoreMsg = totalWeightDelivered > 0 ? $"{totalWeightDelivered} Kg Delivered" : "None...";
+        gameOverMenu.transform.Find("scoreText").GetComponent<TextMeshProUGUI>().SetText(scoreMsg);
         gameOverMenu.SetActive(true);
-        gameOverMenu.transform.Find("scoreText").GetComponent<TextMeshProUGUI>().SetText(mainShip.GetTotalWeightDelivered().ToString());
     }
 
     public void LevelWon()
@@ -117,7 +120,7 @@ public class LevelController : MonoBehaviour
 
     public void RestartGame()
     {
-        SceneController.Instance.ReloadLevel();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void Pause()
