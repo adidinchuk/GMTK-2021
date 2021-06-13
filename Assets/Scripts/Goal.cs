@@ -24,13 +24,8 @@ public class Goal : MonoBehaviour
     public static Goal Create(Vector3 position, float radius, int targetWeight) {
         var angle = UnityEngine.Random.Range(0, 1f) * Mathf.PI * 2;
 
-        Debug.Log(radius);
-
         float x = Mathf.Cos(angle) * radius;
         float y = Mathf.Sin(angle) * radius;
-
-        Debug.Log(x);
-        Debug.Log(y);
 
         Vector3 spawnPosition = new Vector3(x + position.x, y + position.y);
 
@@ -54,15 +49,13 @@ public class Goal : MonoBehaviour
         if (sprites.Length > 0) {
 
             spriteRenderer = transform.Find("sprite").GetComponent<SpriteRenderer>();
+       
             spriteRenderer.sprite = sprites[UnityEngine.Random.Range(0, sprites.Length)];
 
+            float colliderRadius = spriteRenderer.bounds.size.x / 2;
 
-            // TODO: Update radius
-            //float colliderRadius = spriteRenderer.sprite.rect.width;
-
-            //CircleCollider2D collider = transform.GetComponent<CircleCollider2D>();
-            //collider.radius = colliderRadius;
-
+            CircleCollider2D collider = transform.GetComponent<CircleCollider2D>();
+            collider.radius = colliderRadius;
         } 
         else
         {
@@ -93,10 +86,11 @@ public class Goal : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        MainShip mainShip = col.gameObject.GetComponent<MainShip>();
+        MainShip tempShip = col.gameObject.GetComponent<MainShip>();
 
-         if (mainShip != null)
+         if (tempShip != null)
         {
+            mainShip = tempShip;
             overlappingWithMainShip = true;
             CheckCargo();
         }
@@ -111,7 +105,7 @@ public class Goal : MonoBehaviour
         if (mainShip != null)
         {
             overlappingWithMainShip = false;
-            CheckCargo();
+            mainShip = null;
         }
     }
 
@@ -122,6 +116,8 @@ public class Goal : MonoBehaviour
             Debug.Log("Already reached this goal");
             return;
         }
+
+        
 
         int currentWeight = mainShip.GetCarriedWeight();
 

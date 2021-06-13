@@ -29,7 +29,7 @@ public class LevelController : MonoBehaviour
     private float baseGoalDistance = 30f;
     private float goalDistanceIncrement = 20f;
 
-    private int baseGoalScore = 300;
+    private int baseGoalScore = 200;
     private int goalScoreIncrement = 150;
 
     private int level = 1;
