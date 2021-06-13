@@ -2968,6 +2968,7 @@ MonoBehaviour:
   gameUI: {fileID: 703133246}
   pauseMenu: {fileID: 1133587693}
   gameOverMenu: {fileID: 94566095}
+  BGM: {fileID: 8300000, guid: ecef8005fe2a94a40887eb5af94a9259, type: 3}
 --- !u!4 &495014186
 Transform:
   m_ObjectHideFlags: 0
