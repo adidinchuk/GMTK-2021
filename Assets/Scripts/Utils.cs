@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Utils : MonoBehaviour
 {
-    public static AudioSource AddAudioNoFalloff(GameObject gameObject, AudioClip clip, bool loop, bool playAwake, float vol, float pitch)
+    public static AudioSource AddAudioNoFalloff(GameObject gameObject, AudioClip clip, bool loop, bool playAwake, float vol, float pitch, float minRange = 100, float maxRange = 100)
     {
         AudioSource newAudio = gameObject.AddComponent<AudioSource>();
         newAudio.clip = clip;
@@ -14,8 +14,8 @@ public class Utils : MonoBehaviour
         newAudio.pitch = pitch;
         newAudio.spatialBlend = 1f;
         newAudio.rolloffMode = AudioRolloffMode.Linear;
-        newAudio.minDistance = 10f;
-        newAudio.maxDistance = 40f;
+        newAudio.minDistance = minRange;
+        newAudio.maxDistance = maxRange;
 
         return newAudio;
     }
