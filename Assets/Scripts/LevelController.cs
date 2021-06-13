@@ -26,8 +26,8 @@ public class LevelController : MonoBehaviour
     private GameObject shipPartSpawnerInstance;
     public TextMeshProUGUI finalScore;
 
-    private float baseGoalDistance = 15f;
-    private float goalDistanceIncrement = 10f;
+    private float baseGoalDistance = 25f;
+    private float goalDistanceIncrement = 15f;
 
     private int baseGoalScore = 300;
     private int goalScoreIncrement = 150;
