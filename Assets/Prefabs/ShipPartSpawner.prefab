@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enabled: 1
-  spawnRadius: 10
+  spawnRadius: 20
   spawnObjectPrefab:
   - {fileID: 5786479419115872913, guid: 4e454e4dcfa9a634a984b6ce90a7ab47, type: 3}
   - {fileID: 5786479419115872913, guid: 2fc03ddd2adddfa44a03774bf34cf000, type: 3}
@@ -52,8 +52,8 @@ MonoBehaviour:
   - {fileID: 5786479419115872913, guid: e9d0e0b6f742dc444b02244e0acd032e, type: 3}
   minVelocity: 20
   maxVelocity: 150
-  minSpawnDelay: 1
-  maxSpawnDelay: 1
+  minSpawnDelay: 2
+  maxSpawnDelay: 5
   zAxisRandomization: 1
   zAxisRotation: 1
   maxZAxisRotationSpeed: 20

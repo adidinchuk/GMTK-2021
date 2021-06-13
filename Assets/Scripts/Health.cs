@@ -44,7 +44,10 @@ public class Health : MonoBehaviour
             Destroy(vfx, 0.4f);
         }
         
-        GetComponent<SpriteRenderer>().enabled = false;
+        foreach (SpriteRenderer sprite in GetComponents<SpriteRenderer>())
+        {
+            sprite.enabled = false;
+        }
         GetComponent<Collider2D>().enabled = false;
         Destroy(gameObject, 0.5f);
     }

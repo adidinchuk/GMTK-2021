@@ -104,10 +104,9 @@ public class ShipPartMovement : EffectsSoundDevice
             thrusterTopLeft.Thrust();
         }
 
-        if(verticalAxis!=0 && horizontalAxis != 0 && !thrusterSource.isPlaying)
+        if((verticalAxis != 0 || horizontalAxis != 0) && !thrusterSource.isPlaying)
         {
-            thrusterSource.Play();
-            Debug.Log("PLAYING THRUSTERS");
+            thrusterSource.Play();         
         }
         else
         {
