@@ -114,6 +114,7 @@ public class LevelController : MonoBehaviour
         // Spawn next planet
         Goal goal = Goal.Create(mainShipInstance.transform.position, baseGoalDistance + (goalDistanceIncrement * level), baseGoalScore + (goalScoreIncrement * level));
         gameUI.SetGoal(goal);
+        goal.OnGoalReached += LevelController_GoalReached;
 
         // Increase difficulty
         level++;
@@ -127,6 +128,8 @@ public class LevelController : MonoBehaviour
         {
             meteorSpawnerPrefab.minSpawnDelay = 1f;
         }
+
+
         // TODO: Increase spawn rates on spawners?
     }
 
