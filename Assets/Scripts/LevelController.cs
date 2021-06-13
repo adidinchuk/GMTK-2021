@@ -61,7 +61,7 @@ public class LevelController : MonoBehaviour
         goal.OnGoalReached += LevelController_GoalReached;
 
         // Setup UI
-        gameUI.SetGoal(goal.transform.position);
+        gameUI.SetGoal(goal);
         gameUI.SetMainShip(mainShip);
 
 
@@ -102,7 +102,7 @@ public class LevelController : MonoBehaviour
 
         // Spawn next planet
         Goal goal = Goal.Create(mainShipInstance.transform.position, baseGoalDistance + (goalDistanceIncrement * level), baseGoalScore + (goalScoreIncrement * level));
-        gameUI.SetGoal(goal.transform.position);
+        gameUI.SetGoal(goal);
         
         // Increase difficulty
         level++;

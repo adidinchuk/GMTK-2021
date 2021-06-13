@@ -5,7 +5,7 @@ using UnityEngine;
 public static class BFSearch
     
 {
-    public static int Score(Graph<ShipPart> graph, ShipPart start)
+    public static int SumWeight(Graph<ShipPart> graph, ShipPart start)
     {
         var frontier = new Queue<ShipPart>();
         frontier.Enqueue(start);
@@ -13,7 +13,7 @@ public static class BFSearch
         var reached = new HashSet<ShipPart>();
         reached.Add(start);
 
-        int score = graph.GetScore(start);
+        int score = graph.GetWeight(start);
 
         while (frontier.Count > 0)
         {
@@ -23,7 +23,7 @@ public static class BFSearch
             {
                 if (!reached.Contains(next))
                 {
-                    score += graph.GetScore(start); 
+                    score += graph.GetWeight(start); 
                     frontier.Enqueue(next);
                     reached.Add(next);
                 }

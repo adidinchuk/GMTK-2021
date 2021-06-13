@@ -13,9 +13,6 @@ public class ShipPart : EffectsSoundDevice, Graph<ShipPart>
     private bool allowJoints = true;
     private Collider2D collider2d;    
     private Rigidbody2D rigidbody2d;
-    public int score = 100;
-
-
     
     [SerializeField]
     private AudioClip[] fuseSoundAray;
@@ -153,11 +150,11 @@ public class ShipPart : EffectsSoundDevice, Graph<ShipPart>
         breakSource.volume = breakVolume * PlayerPrefs.GetFloat("EffectsVolume");
     }
 
-    public int GetScore(ShipPart shipPart)
+    public int GetWeight(ShipPart shipPart)
     {
-
         return (int)rigidbody2d.mass * 10;
     }
+
     public IEnumerable<ShipPart> Neighbors(ShipPart shipPart)
     {
         FixedJoint2D[] fixedJoints = shipPart.GetComponents<FixedJoint2D>();

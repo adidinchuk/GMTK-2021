@@ -3067,9 +3067,33 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 859792976, guid: 0c96d499ec5c83c498686ebc85ed28f4, type: 3}
+      propertyPath: m_fontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 859792976, guid: 0c96d499ec5c83c498686ebc85ed28f4, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1016224771, guid: 0c96d499ec5c83c498686ebc85ed28f4, type: 3}
+      propertyPath: m_UseGraphicAlpha
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1016224771, guid: 0c96d499ec5c83c498686ebc85ed28f4, type: 3}
+      propertyPath: m_EffectDistance.y
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 5128824392713673857, guid: 0c96d499ec5c83c498686ebc85ed28f4, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5128824392713673859, guid: 0c96d499ec5c83c498686ebc85ed28f4, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5128824392713673859, guid: 0c96d499ec5c83c498686ebc85ed28f4, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5128824392713673861, guid: 0c96d499ec5c83c498686ebc85ed28f4, type: 3}
       propertyPath: m_Pivot.x
@@ -3154,6 +3178,30 @@ PrefabInstance:
     - target: {fileID: 5128824392713673861, guid: 0c96d499ec5c83c498686ebc85ed28f4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5128824393108194092, guid: 0c96d499ec5c83c498686ebc85ed28f4, type: 3}
+      propertyPath: m_fontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5128824393108194092, guid: 0c96d499ec5c83c498686ebc85ed28f4, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5128824393580241626, guid: 0c96d499ec5c83c498686ebc85ed28f4, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 5128824393580241626, guid: 0c96d499ec5c83c498686ebc85ed28f4, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 5128824393853520722, guid: 0c96d499ec5c83c498686ebc85ed28f4, type: 3}
+      propertyPath: m_fontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5128824393853520722, guid: 0c96d499ec5c83c498686ebc85ed28f4, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c96d499ec5c83c498686ebc85ed28f4, type: 3}

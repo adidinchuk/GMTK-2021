@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class MainShip : MonoBehaviour
 {
-    private int totalScore = 0;
+    private int totalWeightDelivered = 0;
     private ShipPart mainShipPart;
     
     private void Awake()
@@ -23,10 +23,17 @@ public class MainShip : MonoBehaviour
 
     }
 
-    public int GetScore()
+    public int GetTotalWeightDelivered()
     {
-        return BFSearch.Score(mainShipPart, mainShipPart) + totalScore - mainShipPart.GetScore(mainShipPart);
+        return totalWeightDelivered;
+    }
 
+    public int GetCarriedWeight()
+    {
+        int currentWeight = BFSearch.SumWeight(mainShipPart, mainShipPart);
+        int mainShipWeight = mainShipPart.GetWeight(mainShipPart);
+     
+        return currentWeight - mainShipWeight;
     }
 
     public void Jettison()
@@ -38,7 +45,7 @@ public class MainShip : MonoBehaviour
         {
             if (shipPart != mainShipPart)
             {
-                totalScore += shipPart.GetScore(shipPart);
+                totalWeightDelivered += shipPart.GetWeight(shipPart);
                 Destroy(shipPart.gameObject);
             }
         }
