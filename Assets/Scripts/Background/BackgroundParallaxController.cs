@@ -13,37 +13,37 @@ public class BackgroundParallaxController : MonoBehaviour
     void Start()
     {
 
-        if (layer == 0)
+        if (layer == 1)
         {
-            speed = -2f;
-            offset = new Vector3(0, 0, 0);
-        }
-        else if (layer == 1)
-        {
-            speed = 0.28f;
-            offset = new Vector3(Random.Range(-5.0f, 5.0f), Random.Range(-5.0f, 5.0f), 0);
+            speed = 0.4f;
+
         }
         else if (layer == 2)
         {
-            speed = 0.55f;
-            offset = new Vector3(Random.Range(-5.0f, 5.0f), Random.Range(-5.0f, 5.0f), 0);
+            speed = 0.5f;
+
         }
         else if (layer == 3)
         {
-            speed = 0.98f;
-            offset = new Vector3(Random.Range(-5.0f, 5.0f), Random.Range(-5.0f, 5.0f), 0);
+            speed = 0.6f;
+
         }
         else if (layer == 4)
         {
-            speed = 0.14f;
-            offset = new Vector3(0, 0, 0);
-        }
+            speed = 0.98f;
+
+        }       
+    }
+
+    public void adjustSpeed()
+    {
+
     }
 
     // Update is called once per frame
     void Update()
     {
        // if (!rocket.isDead)
-            transform.position = new Vector3(mainTransform.position.x * speed, mainTransform.position.y * speed,0) + offset;
+            transform.position = new Vector3(mainTransform.position.x * speed, mainTransform.position.y * speed,0);
     }
 }
