@@ -68,7 +68,7 @@ public class Health : EffectsSoundDevice
             PlaySound(breakSoundAray, breakSource);
             Debug.Log("DESTROYING");
             Destroy(vfx, 0.6f);
-            
+            Destroy(gameObject, 0.8f);
         }
 
         foreach (SpriteRenderer sprite in GetComponents<SpriteRenderer>())
