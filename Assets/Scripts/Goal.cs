@@ -41,14 +41,13 @@ public class Goal : MonoBehaviour
         if (mainShip == null || goalReached) return;
 
         // if col is our ship
-        if (mainShip.GetScore() > targetScore) { 
+        if (mainShip.GetScore() >= targetScore) { 
             goalReached = true;
             OnGoalReached?.Invoke(this, EventArgs.Empty);
         } else {
             Debug.Log("Score too low, required: " + targetScore);
             
-
-        }
+                    }
     }
 
 }

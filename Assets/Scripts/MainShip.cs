@@ -32,7 +32,7 @@ public class MainShip : MonoBehaviour
             if (shipPart != mainShipPart)
             {
                 totalScore += shipPart.GetScore(shipPart);
-                Destroy(shipPart);
+                Destroy(shipPart.gameObject);
             }
         }
 
