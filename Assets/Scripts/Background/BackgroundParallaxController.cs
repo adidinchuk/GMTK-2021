@@ -41,7 +41,7 @@ public class BackgroundParallaxController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
        // if (!rocket.isDead)
             transform.position = new Vector3(mainTransform.position.x * speed, mainTransform.position.y * speed,0);
