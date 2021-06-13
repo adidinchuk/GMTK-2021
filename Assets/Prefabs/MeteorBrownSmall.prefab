@@ -117,7 +117,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.0005104095, y: -0.0021868348}
@@ -137,6 +137,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   impactVFX: {fileID: 2296432800694265953, guid: bf9d43589a24c4842a9ac9fc9574635e, type: 3}
+  impactSoundAray:
+  - {fileID: 8300000, guid: 3c6676c30e6da7447917b1edeedf8e4f, type: 3}
+  - {fileID: 8300000, guid: fb21f2a437534904a9c6a006db0aa5b7, type: 3}
+  - {fileID: 8300000, guid: be842b83b01418a46997cfe8a2fb8451, type: 3}
+  impactSoundArayRock:
+  - {fileID: 8300000, guid: 737f3e732d77d2946b8893ed3086745e, type: 3}
+  - {fileID: 8300000, guid: 29c08f31feecb4c42848420335c059c6, type: 3}
+  - {fileID: 8300000, guid: 1367ad0127a1b8341bf698d76ec2179f, type: 3}
+  impactVolume: 0.5
 --- !u!58 &7037529316701681822
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -147,7 +156,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

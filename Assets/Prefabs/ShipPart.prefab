@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 5786479419115872918}
   - component: {fileID: 4458344802069141524}
   - component: {fileID: 7680706251217068185}
+  - component: {fileID: 4688123115860920724}
   m_Layer: 0
   m_Name: ShipPart
   m_TagString: Untagged
@@ -143,7 +144,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!61 &5786479419115872916
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -182,6 +183,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5620ae2eb62ae9469053341385852d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jointBreakingForce: 100
+  allowJointsTimerMax: 2
+  explosionForce: {x: 30, y: 70}
 --- !u!114 &5786479419115872918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,6 +227,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthAmountMax: 100
+--- !u!114 &4688123115860920724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5786479419115872913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e02f7d3add599c47a923b13d88d4203, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!1001 &3407815723050096503
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -12,6 +12,11 @@ public class Utils : MonoBehaviour
         newAudio.playOnAwake = playAwake;
         newAudio.volume = vol;
         newAudio.pitch = pitch;
+        newAudio.spatialBlend = 1f;
+        newAudio.rolloffMode = AudioRolloffMode.Linear;
+        newAudio.minDistance = 10f;
+        newAudio.maxDistance = 40f;
+
         return newAudio;
     }
 

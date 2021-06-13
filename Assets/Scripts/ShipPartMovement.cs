@@ -25,7 +25,7 @@ public class ShipPartMovement : EffectsSoundDevice
     private bool mouseOver = false;
 
     [SerializeField]
-    private AudioClip[] thrusterSoundAray;
+    private AudioClip thrusterSound;
     [SerializeField]
     private float thrusterVolume;
 
@@ -39,7 +39,7 @@ public class ShipPartMovement : EffectsSoundDevice
         thrusterTopRight = transform.Find("ThrusterTopRight").GetComponent<ShipPartThruster>();
         thrusterBottomLeft = transform.Find("ThrusterBottomLeft").GetComponent<ShipPartThruster>();
         thrusterBottomRight = transform.Find("ThrusterBottomRight").GetComponent<ShipPartThruster>();
-        thrusterSource = Utils.AddAudioNoFalloff(gameObject, null, true, false, thrusterVolume * PlayerPrefs.GetFloat("EffectsVolume"), 1f);
+        thrusterSource = Utils.AddAudioNoFalloff(gameObject, thrusterSound, true, false, thrusterVolume * PlayerPrefs.GetFloat("EffectsVolume"), 1f);
         DetachThrusters();
     }
 
@@ -103,6 +103,16 @@ public class ShipPartMovement : EffectsSoundDevice
             thrusterTopRight.Thrust();
             thrusterTopLeft.Thrust();
         }
+
+        if(verticalAxis!=0 && horizontalAxis != 0 && !thrusterSource.isPlaying)
+        {
+            thrusterSource.Play();
+            Debug.Log("PLAYING THRUSTERS");
+        }
+        else
+        {
+            thrusterSource.Stop();
+        }
     }
 
 
@@ -130,6 +140,7 @@ public class ShipPartMovement : EffectsSoundDevice
         thrusterBottomRight.gameObject.SetActive(false);
     }
 
+   
     override public void updateSound()
     {
         thrusterSource.volume = thrusterVolume * PlayerPrefs.GetFloat("EffectsVolume");

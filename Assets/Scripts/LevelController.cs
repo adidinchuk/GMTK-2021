@@ -14,29 +14,28 @@ public class LevelController : MonoBehaviour
 
     private void Awake()
     {
-      
+        PlayerPrefs.SetFloat("EffectsVolume", 1f);
     }
     // Start is called before the first frame update
     void Start()
     {
         // instantiate a victory location
         GameObject goalInstance = Instantiate(goal.gameObject);
-        GameUI.Instance.SetGoal(goalInstance.transform.position);
 
         // Spawn main ship
         GameObject mainShipInstance = Instantiate(mainShip.gameObject);
         vcam.Follow = mainShipInstance.transform;
 
-
         // Start spawners
-        Instantiate(spawner.gameObject);
+        GameObject spawnerInstance = Instantiate(spawner.gameObject);
+        spawnerInstance.transform.SetParent(mainShipInstance.transform);
 
         // Spawn stars / Background?
 
 
-
-
-
+        // Setup UI
+        GameUI.Instance.SetGoal(goalInstance.transform.position);
+        GameUI.Instance.SetMainShip(mainShipInstance.GetComponent<MainShip>());
 
 
 

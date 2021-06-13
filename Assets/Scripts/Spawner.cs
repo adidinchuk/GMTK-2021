@@ -59,9 +59,9 @@ public class Spawner : MonoBehaviour
     private Vector2 getRandomCirclePosition()
     {
         Vector2 spawnPosition = Random.insideUnitCircle.normalized;
-        spawnPosition.x = spawnPosition.x * spawnRadius;
-        spawnPosition.y = spawnPosition.y * spawnRadius;
-        return spawnPosition;
+        spawnPosition.x = (spawnPosition.x  * spawnRadius) + transform.position.x;
+        spawnPosition.y = (spawnPosition.y  * spawnRadius) + transform.position.y;
+        return spawnPosition ;
     }
 
     // Update is called once per frame

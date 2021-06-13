@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShipPart : EffectsSoundDevice
+public class ShipPart : EffectsSoundDevice, Graph<ShipPart>
 {
     public int jointBreakingForce = 100;
     public float allowJointsTimerMax = 2f;
@@ -13,6 +13,7 @@ public class ShipPart : EffectsSoundDevice
     private bool allowJoints = true;
     private Collider2D collider2d;    
     private Rigidbody2D rigidbody2d;
+    public int score = 100;
 
     [SerializeField]
     private AudioClip[] fuseSoundAray;
@@ -74,11 +75,11 @@ public class ShipPart : EffectsSoundDevice
 
         FixedJoint2D joint = gameObject.AddComponent<FixedJoint2D>();
         joint.connectedBody = col.rigidbody;
-        // joint.enableCollision = false;
         joint.breakForce = 100;
         joint.breakTorque = 100;
 
         playSound(fuseSoundAray, fuseSource);
+        // Check if connected to main ship, if so add points
 
     }
 
@@ -134,5 +135,22 @@ public class ShipPart : EffectsSoundDevice
     {
         fuseSource.volume = fuseVolume * PlayerPrefs.GetFloat("EffectsVolume");
         breakSource.volume = breakVolume * PlayerPrefs.GetFloat("EffectsVolume");
+    }
+
+    public int GetScore(ShipPart shipPart)
+    {
+        return score;
+    }
+    public IEnumerable<ShipPart> Neighbors(ShipPart shipPart)
+    {
+        FixedJoint2D[] fixedJoints = shipPart.GetComponents<FixedJoint2D>();
+
+
+        foreach (FixedJoint2D fixedJoint in fixedJoints)
+        {
+            ShipPart neighoringShipPart = fixedJoint.connectedBody.gameObject.GetComponent<ShipPart>();
+            yield return neighoringShipPart;
+        }
+
     }
 }
