@@ -35,12 +35,22 @@ public class MusicManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(this.gameObject);
+
+        if (!PlayerPrefs.HasKey("EffectsVolume"))
+        {
+            PlayerPrefs.SetFloat("EffectsVolume", 1f);
+        }
+        if (!PlayerPrefs.HasKey("MusicVolume"))
+        {
+            PlayerPrefs.SetFloat("MusicVolume", 1f);
+        }
+       
         
+
     }
 
     void Start()
     {
-        volume = 1f;
         float globalVolume = PlayerPrefs.GetFloat("MusicVolume");
         musicSource = Utils.AddAudioNoFalloff(gameObject, menuMuisc, true, false, volume * globalVolume, 1);
         currentVolume = musicSource.volume;
