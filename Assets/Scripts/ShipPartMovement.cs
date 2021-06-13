@@ -106,11 +106,7 @@ public class ShipPartMovement : EffectsSoundDevice
             thrusterTopLeft.Thrust();
         }
 
-<<<<<<< HEAD
-        if((verticalAxis != 0 || horizontalAxis != 0) && !thrusterSource.isPlaying)
-        {
-            thrusterSource.Play();         
-=======
+
 
         if (!thrusterSource.isPlaying && (verticalAxis != 0 || horizontalAxis != 0) )
         {
@@ -122,7 +118,6 @@ public class ShipPartMovement : EffectsSoundDevice
 
             thrusterSource.volume = thrusterVolume * PlayerPrefs.GetFloat("EffectsVolume");
             thrusterSource.Play();        
->>>>>>> e76bc34d489e4729ba4a367ac095f9910fc31105
         }
 
         if (audioFade == null && verticalAxis == 0 && horizontalAxis == 0)

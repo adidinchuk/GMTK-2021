@@ -42,15 +42,13 @@ public class Health : MonoBehaviour
             var vfx = Instantiate(death, transform.position, transform.rotation);
             Destroy(vfx, 0.4f);
         }
-<<<<<<< HEAD
-        
+
         foreach (SpriteRenderer sprite in GetComponents<SpriteRenderer>())
         {
             sprite.enabled = false;
         }
-        GetComponent<Collider2D>().enabled = false;
-=======
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        GetComponent<Collider2D>().enabled = false;
         Collider2D collider2D = GetComponent<Collider2D>();
 
         if (spriteRenderer != null)
@@ -70,7 +68,7 @@ public class Health : MonoBehaviour
             Debug.LogWarning("No collider2D on: " + this.name);
         }
 
->>>>>>> e76bc34d489e4729ba4a367ac095f9910fc31105
+
         Destroy(gameObject, 0.5f);
     }
 
