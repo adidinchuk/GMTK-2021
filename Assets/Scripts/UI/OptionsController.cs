@@ -26,9 +26,7 @@ public class OptionsController : MonoBehaviour
     public void updateEffectsVolume()
     {
         PlayerPrefs.SetFloat("EffectsVolume", effectsSlider.value);
-        Debug.Log("SOUND: " + PlayerPrefs.GetFloat("EffectsVolume"));
         EffectsSoundDevice[] gameSounds = (EffectsSoundDevice[])GameObject.FindObjectsOfType(typeof(EffectsSoundDevice));
-        //Debug.Log("FOUND " + gameSounds.Length + " OBJECTS");
         for (int i = 0; i < gameSounds.Length; i++)
         {
             gameSounds[i].updateSound();
