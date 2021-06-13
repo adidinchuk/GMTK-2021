@@ -29,7 +29,7 @@ public class Goal : MonoBehaviour
         return goal;
     }
 
-    private void SetTargetWeight(int targetWeight)
+    public void SetTargetWeight(int targetWeight)
     {
         this.targetWeight = targetWeight;
         this.goalReached = false;
@@ -67,18 +67,28 @@ public class Goal : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         MainShip mainShip = col.gameObject.GetComponent<MainShip>();
-        if (mainShip == null || goalReached) return;
 
-        // if col is our ship
+        if (goalReached)
+        {
+            Debug.Log("Already reached this goal");
+            return;
+        }
 
-        Debug.Log(mainShip.GetCarriedWeight());
-        Debug.Log(targetWeight);
-        if (mainShip.GetCarriedWeight() >= targetWeight) { 
+
+        if (mainShip == null)
+        {
+            Debug.Log("Not main ship");
+            return;
+        }
+
+        int currentWeight = mainShip.GetCarriedWeight();
+
+        if (currentWeight >= targetWeight) { 
             goalReached = true;
             OnGoalReached?.Invoke(this, EventArgs.Empty);
         } else {
+            Debug.Log("Current weight of ship: " + currentWeight);
             Debug.Log("Score too low, required: " + targetWeight);
-            
         }
     }
 
