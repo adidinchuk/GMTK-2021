@@ -149,7 +149,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2bf880cca0ed8f143ad8282a310593b4, type: 3}
   - {fileID: 8300000, guid: eee18cb7e1beb4d46ad134843fc92c88, type: 3}
   - {fileID: 8300000, guid: 0b2b327b8c7a29f48b5a6aea0d4ffc5c, type: 3}
-  explosionVolume: 0.6
+  explosionVolume: 0.3
 --- !u!58 &4065427368485032273
 CircleCollider2D:
   m_ObjectHideFlags: 0
