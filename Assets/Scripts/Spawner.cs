@@ -10,8 +10,8 @@ public class Spawner : MonoBehaviour
     [SerializeField] GameObject[] spawnObjectPrefab;
     [SerializeField] float minVelocity = 1f;
     [SerializeField] float maxVelocity = 2f;    
-    [SerializeField] float minSpawnDelay = 2f;
-    [SerializeField] float maxSpawnDelay = 1f;
+    [SerializeField] public float minSpawnDelay = 2f;
+    [SerializeField] public float maxSpawnDelay = 1f;
     [SerializeField] bool zAxisRandomization = true;
     [SerializeField] bool zAxisRotation = true;    
     [SerializeField] float maxZAxisRotationSpeed = 20f;
