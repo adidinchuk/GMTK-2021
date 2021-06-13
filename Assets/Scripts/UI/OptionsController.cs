@@ -5,8 +5,9 @@ using UnityEngine.UI;
 
 public class OptionsController : MonoBehaviour
 {
-
+    [SerializeField]
     private Slider musicSlider;
+    [SerializeField]
     private Slider effectsSlider;
 
     // Start is called before the first frame update
