@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 3
-  impactVFX: {fileID: 0}
+  impactVFX: {fileID: 1170567192047786, guid: 39563546806bcef439fef3206a384796, type: 3}
   impactSoundAray:
   - {fileID: 8300000, guid: 4c2bfe0889eeb6f44887724efab02ffd, type: 3}
   impactSoundArayRock:

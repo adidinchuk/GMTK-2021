@@ -405,24 +405,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-
-    - target: {fileID: 4458344802069141524, guid: 3e5a8c25365d3584385f79206cee4f7a, type: 3}
-      propertyPath: thrusterSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 5ba5d4a437e56464ab173232d6590c06, type: 3}
-    - target: {fileID: 4458344802069141524, guid: 3e5a8c25365d3584385f79206cee4f7a, type: 3}
-      propertyPath: thrusterVolume
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4458344802069141524, guid: 3e5a8c25365d3584385f79206cee4f7a, type: 3}
-      propertyPath: thrusterSoundAray.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4458344802069141524, guid: 3e5a8c25365d3584385f79206cee4f7a, type: 3}
-      propertyPath: thrusterSoundAray.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: 5ba5d4a437e56464ab173232d6590c06, type: 3}
-
     - target: {fileID: 5198138723919772393, guid: 3e5a8c25365d3584385f79206cee4f7a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.151
@@ -455,7 +437,6 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 16f870d96417678449a4da0ac82a3638, type: 3}
-
     - target: {fileID: 5786479419115872913, guid: 3e5a8c25365d3584385f79206cee4f7a, type: 3}
       propertyPath: m_Name
       value: MainShipPart Variant
@@ -529,14 +510,6 @@ PrefabInstance:
       value: -0.045530677
       objectReference: {fileID: 0}
     - target: {fileID: 5786479419115872917, guid: 3e5a8c25365d3584385f79206cee4f7a, type: 3}
-      propertyPath: fuseVolume
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5786479419115872917, guid: 3e5a8c25365d3584385f79206cee4f7a, type: 3}
-      propertyPath: breakVolume
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5786479419115872917, guid: 3e5a8c25365d3584385f79206cee4f7a, type: 3}
       propertyPath: explosionForce
       value: 30
       objectReference: {fileID: 0}
@@ -544,38 +517,6 @@ PrefabInstance:
       propertyPath: allowJointsTimerMax
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 5786479419115872917, guid: 3e5a8c25365d3584385f79206cee4f7a, type: 3}
-      propertyPath: fuseSoundAray.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5786479419115872917, guid: 3e5a8c25365d3584385f79206cee4f7a, type: 3}
-      propertyPath: breakSoundAray.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5786479419115872917, guid: 3e5a8c25365d3584385f79206cee4f7a, type: 3}
-      propertyPath: fuseSoundAray.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: 1df61b4031761734f878a53f193f1783, type: 3}
-    - target: {fileID: 5786479419115872917, guid: 3e5a8c25365d3584385f79206cee4f7a, type: 3}
-      propertyPath: fuseSoundAray.Array.data[1]
-      value: 
-      objectReference: {fileID: 8300000, guid: d507a3f71f3d3b240bb02d48bc8bf9bd, type: 3}
-    - target: {fileID: 5786479419115872917, guid: 3e5a8c25365d3584385f79206cee4f7a, type: 3}
-      propertyPath: fuseSoundAray.Array.data[2]
-      value: 
-      objectReference: {fileID: 8300000, guid: 8145a4d01ec00204ba9f2c7439fe9560, type: 3}
-    - target: {fileID: 5786479419115872917, guid: 3e5a8c25365d3584385f79206cee4f7a, type: 3}
-      propertyPath: breakSoundAray.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: af9bdb6008d66a1429dd8d5dc74691fa, type: 3}
-    - target: {fileID: 5786479419115872917, guid: 3e5a8c25365d3584385f79206cee4f7a, type: 3}
-      propertyPath: breakSoundAray.Array.data[1]
-      value: 
-      objectReference: {fileID: 8300000, guid: af9bdb6008d66a1429dd8d5dc74691fa, type: 3}
-    - target: {fileID: 5786479419115872917, guid: 3e5a8c25365d3584385f79206cee4f7a, type: 3}
-      propertyPath: breakSoundAray.Array.data[2]
-      value: 
-      objectReference: {fileID: 8300000, guid: 6cf51f0fa739d90478e239fcee92a87e, type: 3}
     - target: {fileID: 5786479419115872918, guid: 3e5a8c25365d3584385f79206cee4f7a, type: 3}
       propertyPath: maxMoveSpeed
       value: 100

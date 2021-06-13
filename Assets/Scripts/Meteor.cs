@@ -39,8 +39,9 @@ public class Meteor : EffectsSoundDevice
             }
             health.DealDamage(damage);
             var vfx = Instantiate(impactVFX, transform.position, transform.rotation);
-            Destroy(vfx, 0.3f);
-            Destroy(gameObject);
+            Destroy(vfx, 0.4f);
+            GetComponent<SpriteRenderer>().enabled = false;
+            Destroy(gameObject, 0.3f);
         }
     }
     private void playSound(AudioClip[] array, AudioSource source)

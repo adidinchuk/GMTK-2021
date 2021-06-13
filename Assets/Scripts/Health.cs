@@ -43,7 +43,10 @@ public class Health : MonoBehaviour
             var vfx = Instantiate(death, transform.position, transform.rotation);
             Destroy(vfx, 0.4f);
         }
-        Destroy(gameObject);
+        
+        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<Collider2D>().enabled = false;
+        Destroy(gameObject, 0.5f);
     }
 
     public float GetHealth()
