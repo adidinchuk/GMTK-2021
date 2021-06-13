@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -7423504413977675836}
   m_Layer: 0
   m_Name: MeteorBrownMed
-  m_TagString: Untagged
+  m_TagString: Meteor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -136,16 +136,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 3
-  impactVFX: {fileID: 2296432800694265953, guid: bf9d43589a24c4842a9ac9fc9574635e, type: 3}
+  impactVFX: {fileID: 0}
   impactSoundAray:
-  - {fileID: 8300000, guid: 3c6676c30e6da7447917b1edeedf8e4f, type: 3}
-  - {fileID: 8300000, guid: fb21f2a437534904a9c6a006db0aa5b7, type: 3}
-  - {fileID: 8300000, guid: be842b83b01418a46997cfe8a2fb8451, type: 3}
+  - {fileID: 8300000, guid: 4c2bfe0889eeb6f44887724efab02ffd, type: 3}
   impactSoundArayRock:
   - {fileID: 8300000, guid: 737f3e732d77d2946b8893ed3086745e, type: 3}
   - {fileID: 8300000, guid: 29c08f31feecb4c42848420335c059c6, type: 3}
   - {fileID: 8300000, guid: 1367ad0127a1b8341bf698d76ec2179f, type: 3}
-  impactVolume: 0.5
+  impactVolume: 0.6
 --- !u!58 &-7423504413977675836
 CircleCollider2D:
   m_ObjectHideFlags: 0

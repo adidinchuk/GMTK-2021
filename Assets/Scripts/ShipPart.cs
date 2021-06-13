@@ -72,13 +72,25 @@ public class ShipPart : EffectsSoundDevice, Graph<ShipPart>
 
         ShipPart otherShipPart = col.gameObject.GetComponent<ShipPart>();
         if (otherShipPart == null) return;
-
         FixedJoint2D joint = gameObject.AddComponent<FixedJoint2D>();
         joint.connectedBody = col.rigidbody;
         joint.breakForce = 100;
         joint.breakTorque = 100;
 
         playSound(fuseSoundAray, fuseSource);
+
+        FixedJoint2D jointA = gameObject.AddComponent<FixedJoint2D>();
+        jointA.connectedBody = col.rigidbody;
+        jointA.enableCollision = false;
+        jointA.breakForce = 100;
+        jointA.breakTorque = 100;
+
+
+        FixedJoint2D jointB = col.gameObject.AddComponent<FixedJoint2D>();
+        jointB.connectedBody = this.rigidbody2d;
+        jointB.enableCollision = false;
+        jointB.breakForce = 100;
+        jointB.breakTorque = 100;
         // Check if connected to main ship, if so add points
 
     }

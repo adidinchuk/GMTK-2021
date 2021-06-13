@@ -4,7 +4,6 @@ using TMPro;
 public class GameUI : MonoBehaviour
 {
 
-    public static GameUI Instance { get; private set; }
     public float goalIndicatorRadius = 300f;
 
     private Vector3 goalPosition;
@@ -13,13 +12,12 @@ public class GameUI : MonoBehaviour
     private TextMeshProUGUI scoreText;
 
     private float checkScoreTimer = 0f;
-    private float checkScoreTimerMax = 0.5f;
+    private float checkScoreTimerMax = 0.2f;
 
     private MainShip mainShip;
 
     void Awake()
     {
-        Instance = this;
         goalPositionIndicator = transform.Find("goalPositionIndicator").GetComponent<RectTransform>();
         goalDistanceText = transform.Find("distanceText").GetComponent<TextMeshProUGUI>();
         scoreText = transform.Find("scoreText").GetComponent<TextMeshProUGUI>();

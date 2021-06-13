@@ -1,9 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Health : MonoBehaviour
 {
+    public event EventHandler OnDamaged;
+    public event EventHandler OnDied;
+
+
     [SerializeField] float health = 100f;
     float startHealth;
 
@@ -15,6 +20,9 @@ public class Health : MonoBehaviour
     public void DealDamage(float damage)
     {
         health = health - damage;
+        
+        OnDamaged?.Invoke(this, EventArgs.Empty);
+
         if (health <= 0)
         {
             Die();
@@ -25,7 +33,9 @@ public class Health : MonoBehaviour
     }
 
     private void Die()
-    {        
+    {
+        Debug.Log("Died");
+        OnDied?.Invoke(this, EventArgs.Empty);
         var entity = gameObject.GetComponent<Entity>();
         if (entity)
         {

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3493471831208311788}
   - component: {fileID: 3493471831208311791}
   m_Layer: 0
-  m_Name: Spawner
+  m_Name: MeteorSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,11 +46,9 @@ MonoBehaviour:
   enabled: 1
   spawnRadius: 10
   spawnObjectPrefab:
-  - {fileID: 5786479419115872913, guid: 3e5a8c25365d3584385f79206cee4f7a, type: 3}
   - {fileID: 5250643544586531000, guid: e534ec9d6ee6a064c993b390de7224e4, type: 3}
   - {fileID: 5966585218382916551, guid: d67e63b86cb91254d802784a69f67b5d, type: 3}
   - {fileID: 916474784931308018, guid: 71ebe068f01a19741a2609e63a377334, type: 3}
-  - {fileID: 5786479419115872913, guid: a6fc2cbb34bb03549b4b125594a28a1d, type: 3}
   minVelocity: 20
   maxVelocity: 150
   minSpawnDelay: 1

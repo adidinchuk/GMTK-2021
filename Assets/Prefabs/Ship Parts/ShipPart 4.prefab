@@ -895,7 +895,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thrusterSound: {fileID: 8300000, guid: 5ba5d4a437e56464ab173232d6590c06, type: 3}
-  thrusterVolume: 0.2
+  thrusterVolume: 0.3
 --- !u!114 &7680706251217068185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -978,7 +978,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10dd27016159f054889b30e751d25195, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathVFX: {fileID: 1129778909008140308, guid: a6b2ed8fb1e04fd4a8713456976fd765, type: 3}
+  deathVFX: {fileID: 1170567192047786, guid: bd8221e7986b65446bc65e27dc53402d, type: 3}
 --- !u!1001 &3407815723050096503
 PrefabInstance:
   m_ObjectHideFlags: 0

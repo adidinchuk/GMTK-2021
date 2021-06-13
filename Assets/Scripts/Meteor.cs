@@ -26,7 +26,7 @@ public class Meteor : EffectsSoundDevice
     {      
         var health = collision.GetComponent<Health>();
         var entity = collision.GetComponent<Entity>(); ;
-        
+
         if (entity && health)
         {
             if (collision.tag == "Meteor")
