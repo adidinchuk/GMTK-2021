@@ -2968,6 +2968,7 @@ MonoBehaviour:
   gameUI: {fileID: 703133246}
   pauseMenu: {fileID: 1133587693}
   gameOverMenu: {fileID: 94566095}
+  finalScore: {fileID: 1173520597}
   BGM: {fileID: 8300000, guid: ecef8005fe2a94a40887eb5af94a9259, type: 3}
 --- !u!4 &495014186
 Transform:
@@ -6884,6 +6885,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 498749024234068601, guid: dd1ac876349958248993a1ca839136ad, type: 3}
   m_PrefabInstance: {fileID: 920248003}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1173520597 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4191606151355399284, guid: 0c96d499ec5c83c498686ebc85ed28f4, type: 3}
+  m_PrefabInstance: {fileID: 506990046}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1175632453 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9016734708481963872, guid: d321ed0b8bb83f040b2564b7e2c6aefb, type: 3}

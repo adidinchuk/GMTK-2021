@@ -24,7 +24,7 @@ public class LevelController : MonoBehaviour
     private GameObject mainShipInstance;
     private GameObject meteorSpawnerInstance;
     private GameObject shipPartSpawnerInstance;
-
+    public TextMeshProUGUI finalScore;
 
     private float baseGoalDistance = 15f;
     private float goalDistanceIncrement = 10f;
@@ -98,7 +98,11 @@ public class LevelController : MonoBehaviour
         Time.timeScale = 0;
         int totalWeightDelivered = mainShip.GetTotalWeightDelivered();
         string scoreMsg = totalWeightDelivered > 0 ? $"{totalWeightDelivered} Kg Delivered" : "None...";
-        gameOverMenu.transform.Find("scoreText").GetComponent<TextMeshProUGUI>().SetText(scoreMsg);
+
+        //gameOverMenu.transform.Find("scoreText").GetComponent<TextMeshProUGUI>().SetText(scoresg);
+
+        finalScore.SetText(scoreMsg);
+
         gameOverMenu.SetActive(true);
     }
 
