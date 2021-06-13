@@ -502,7 +502,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4688123115860920724, guid: 3e5a8c25365d3584385f79206cee4f7a, type: 3}
       propertyPath: health
-      value: 50
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4688123115860920724, guid: 3e5a8c25365d3584385f79206cee4f7a, type: 3}
       propertyPath: breakVolume
@@ -678,7 +678,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5786479419115872918, guid: 3e5a8c25365d3584385f79206cee4f7a, type: 3}
       propertyPath: maxAngularVelocity
-      value: 300
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 7680706251217068185, guid: 3e5a8c25365d3584385f79206cee4f7a, type: 3}
       propertyPath: healthAmountMax

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelController : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class LevelController : MonoBehaviour
     private GameObject mainShipInstance;
     private GameObject meteorSpawnerInstance;
     private GameObject shipPartSpawnerInstance;
-
+    public TextMeshProUGUI finalScore;
 
     private float baseGoalDistance = 15f;
     private float goalDistanceIncrement = 10f;
@@ -95,8 +96,14 @@ public class LevelController : MonoBehaviour
     public void LevelLost()
     {
         Time.timeScale = 0;
+        int totalWeightDelivered = mainShip.GetTotalWeightDelivered();
+        string scoreMsg = totalWeightDelivered > 0 ? $"{totalWeightDelivered} Kg Delivered" : "None...";
+
+        //gameOverMenu.transform.Find("scoreText").GetComponent<TextMeshProUGUI>().SetText(scoresg);
+
+        finalScore.SetText(scoreMsg);
+
         gameOverMenu.SetActive(true);
-        gameOverMenu.transform.Find("scoreText").GetComponent<TextMeshProUGUI>().SetText(mainShip.GetTotalWeightDelivered().ToString());
     }
 
     public void LevelWon()
@@ -117,7 +124,8 @@ public class LevelController : MonoBehaviour
 
     public void RestartGame()
     {
-        SceneController.Instance.ReloadLevel();
+        Time.timeScale = 1;
+        SceneManager.LoadScene(0);
     }
 
     public void Pause()
