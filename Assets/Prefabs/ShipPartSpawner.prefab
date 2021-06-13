@@ -50,8 +50,8 @@ MonoBehaviour:
   - {fileID: 5786479419115872913, guid: 2fc03ddd2adddfa44a03774bf34cf000, type: 3}
   - {fileID: 5786479419115872913, guid: 6c2fd5647833e414d904f0f309be470e, type: 3}
   - {fileID: 5786479419115872913, guid: e9d0e0b6f742dc444b02244e0acd032e, type: 3}
-  minVelocity: 20
-  maxVelocity: 150
+  minVelocity: 10
+  maxVelocity: 20
   minSpawnDelay: 2
   maxSpawnDelay: 5
   zAxisRandomization: 1

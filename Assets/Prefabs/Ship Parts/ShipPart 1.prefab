@@ -666,7 +666,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.2
   m_LinearDrag: 0
   m_AngularDrag: 3
   m_GravityScale: 0
@@ -716,7 +716,6 @@ MonoBehaviour:
   jointBreakingForce: 100
   allowJointsTimerMax: 2
   explosionForce: {x: 30, y: 70}
-  score: 100
   fuseSoundAray:
   - {fileID: 8300000, guid: 6cf51f0fa739d90478e239fcee92a87e, type: 3}
   - {fileID: 8300000, guid: d82f6562e16be5348b6b9e723381d8db, type: 3}
