@@ -20,7 +20,12 @@ public class OptionsController : MonoBehaviour
     public void updateMusicVolume()
     {
         PlayerPrefs.SetFloat("MusicVolume", musicSlider.value);
-        MusicManager.getInstance().updateSound();
+        MusicManager instance = MusicManager.getInstance();
+        if (instance)
+        {
+            instance.updateSound();
+
+        }
     }
 
     public void updateEffectsVolume()

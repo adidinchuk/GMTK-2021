@@ -1,6 +1,7 @@
 using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class LevelController : MonoBehaviour
@@ -95,6 +96,7 @@ public class LevelController : MonoBehaviour
     {
         Time.timeScale = 0;
         gameOverMenu.SetActive(true);
+        gameOverMenu.transform.Find("scoreText").GetComponent<TextMeshProUGUI>().SetText(mainShip.GetTotalWeightDelivered().ToString());
     }
 
     public void LevelWon()
@@ -111,6 +113,11 @@ public class LevelController : MonoBehaviour
 
 
         // TODO: Increase spawn rates on spawners?
+    }
+
+    public void RestartGame()
+    {
+        SceneController.Instance.ReloadLevel();
     }
 
     public void Pause()
