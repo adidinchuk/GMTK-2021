@@ -43,17 +43,17 @@ public class ShipPart : EffectsSoundDevice, Graph<ShipPart>
 
     private void Update()
     {
-        if (mouseOver && Input.GetMouseButtonDown(1))
-        {
-            Explode();
-        }
+        //if (mouseOver && Input.GetMouseButtonDown(1))
+        //{
+        //    Explode();
+        //}
 
-        if (!collider2d.enabled && allowJointsTimer <= 0f)
-        {
-            allowJoints = true;
-        }
+        //if (!collider2d.enabled && allowJointsTimer <= 0f)
+        //{
+        //    allowJoints = true;
+        //}
 
-        allowJointsTimer -= Time.deltaTime;
+        //allowJointsTimer -= Time.deltaTime;
     }
 
     private void OnCollisionEnter2D(Collision2D col)
