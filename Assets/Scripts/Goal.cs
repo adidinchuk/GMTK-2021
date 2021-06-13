@@ -8,15 +8,24 @@ public class Goal : MonoBehaviour
     private int targetWeight;
     private bool goalReached = false;
 
+    bool overlappingWithMainShip = false;
+    private MainShip mainShip;
+
+
+
     [SerializeField] Sprite[] sprites;
     private SpriteRenderer spriteRenderer;
 
+
+    private float checkShipCargoTimerMax = 0.2f;
+    private float checkShipCargoTimer = 0.0f;
 
     // TODO: Add a visual for the current goal
     public static Goal Create(Vector3 position, float radius, int targetWeight) {
         var angle = UnityEngine.Random.Range(0, 1f) * Mathf.PI * 2;
 
         Debug.Log(radius);
+
         float x = Mathf.Cos(angle) * radius;
         float y = Mathf.Sin(angle) * radius;
 
@@ -47,6 +56,8 @@ public class Goal : MonoBehaviour
             spriteRenderer = transform.Find("sprite").GetComponent<SpriteRenderer>();
             spriteRenderer.sprite = sprites[UnityEngine.Random.Range(0, sprites.Length)];
 
+
+            // TODO: Update radius
             //float colliderRadius = spriteRenderer.sprite.rect.width;
 
             //CircleCollider2D collider = transform.GetComponent<CircleCollider2D>();
@@ -61,6 +72,18 @@ public class Goal : MonoBehaviour
     }
 
 
+    public void Update()
+    {
+        
+        if (overlappingWithMainShip) {
+            checkShipCargoTimer -= Time.deltaTime;
+            if (checkShipCargoTimer <= 0) { 
+                checkShipCargoTimer += checkShipCargoTimerMax;
+                CheckCargo();
+            }
+        }
+    }
+
     public int GetTargetWeight()
     {
         return this.targetWeight;
@@ -72,28 +95,45 @@ public class Goal : MonoBehaviour
     {
         MainShip mainShip = col.gameObject.GetComponent<MainShip>();
 
+         if (mainShip != null)
+        {
+            overlappingWithMainShip = true;
+            CheckCargo();
+        }
+
+  
+   
+    }
+    void OnTriggerExit2D(Collider2D col)
+    {
+        MainShip mainShip = col.gameObject.GetComponent<MainShip>();
+        
+        if (mainShip != null)
+        {
+            overlappingWithMainShip = false;
+            CheckCargo();
+        }
+    }
+
+    void CheckCargo()
+    {
         if (goalReached)
         {
             Debug.Log("Already reached this goal");
             return;
         }
 
-
-        if (mainShip == null)
-        {
-            Debug.Log("Not main ship");
-            return;
-        }
-
         int currentWeight = mainShip.GetCarriedWeight();
 
-        if (currentWeight >= targetWeight) { 
+        if (currentWeight >= targetWeight)
+        {
             goalReached = true;
             OnGoalReached?.Invoke(this, EventArgs.Empty);
-        } else {
+        }
+        else
+        {
             Debug.Log("Current weight of ship: " + currentWeight);
             Debug.Log("Score too low, required: " + targetWeight);
         }
     }
-
 }
