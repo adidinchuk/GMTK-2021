@@ -36,8 +36,8 @@ public class ShipPart : EffectsSoundDevice, Graph<ShipPart>
     {
         collider2d = gameObject.GetComponent<Collider2D>();
         rigidbody2d = gameObject.GetComponent<Rigidbody2D>();
-        fuseSource = Utils.AddAudioNoFalloff(gameObject, null, false, false, fuseVolume * PlayerPrefs.GetFloat("EffectsVolume"), 1f);
-        breakSource = Utils.AddAudioNoFalloff(gameObject, null, false, false, breakVolume * PlayerPrefs.GetFloat("EffectsVolume"), 1f);
+        fuseSource = Utils.AddAudioNoFalloff(gameObject, null, false, false, fuseVolume * PlayerPrefs.GetFloat("EffectsVolume"), 1f, 4, 14);
+        breakSource = Utils.AddAudioNoFalloff(gameObject, null, false, false, breakVolume * PlayerPrefs.GetFloat("EffectsVolume"), 1f, 4, 14);
 
     }
 

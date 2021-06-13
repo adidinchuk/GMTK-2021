@@ -138,12 +138,18 @@ MonoBehaviour:
   damage: 5
   impactVFX: {fileID: 1170567192047786, guid: 39563546806bcef439fef3206a384796, type: 3}
   impactSoundAray:
-  - {fileID: 8300000, guid: 4c2bfe0889eeb6f44887724efab02ffd, type: 3}
+  - {fileID: 8300000, guid: 3c6676c30e6da7447917b1edeedf8e4f, type: 3}
+  - {fileID: 8300000, guid: fb21f2a437534904a9c6a006db0aa5b7, type: 3}
+  - {fileID: 8300000, guid: be842b83b01418a46997cfe8a2fb8451, type: 3}
   impactSoundArayRock:
   - {fileID: 8300000, guid: 737f3e732d77d2946b8893ed3086745e, type: 3}
   - {fileID: 8300000, guid: 29c08f31feecb4c42848420335c059c6, type: 3}
-  - {fileID: 8300000, guid: 1367ad0127a1b8341bf698d76ec2179f, type: 3}
-  impactVolume: 0.6
+  impactVolume: 0.5
+  explosionSoundArray:
+  - {fileID: 8300000, guid: 2bf880cca0ed8f143ad8282a310593b4, type: 3}
+  - {fileID: 8300000, guid: eee18cb7e1beb4d46ad134843fc92c88, type: 3}
+  - {fileID: 8300000, guid: 0b2b327b8c7a29f48b5a6aea0d4ffc5c, type: 3}
+  explosionVolume: 0.6
 --- !u!58 &4065427368485032273
 CircleCollider2D:
   m_ObjectHideFlags: 0
