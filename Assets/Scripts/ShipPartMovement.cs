@@ -107,6 +107,7 @@ public class ShipPartMovement : EffectsSoundDevice
         }
 
 
+
         if (!thrusterSource.isPlaying && (verticalAxis != 0 || horizontalAxis != 0) )
         {
 
