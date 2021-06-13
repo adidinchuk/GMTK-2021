@@ -39,8 +39,6 @@ public class LevelController : MonoBehaviour
 
     private void Start()
     {
-
-
         // Spawn main ship
         mainShipInstance = Instantiate(mainShipPrefab.gameObject);
         mainShip = mainShipInstance.GetComponent<MainShip>();
@@ -72,9 +70,10 @@ public class LevelController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Escape))
         {
             Pause();
+
         }
     }
 
@@ -84,7 +83,6 @@ public class LevelController : MonoBehaviour
     }
     private void LevelController_OnDied(object sender, System.EventArgs e)
     {
-        Debug.Log("Level Lost!");
         LevelLost();
     }
 
