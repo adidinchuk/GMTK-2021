@@ -31,4 +31,24 @@ public class Utils : MonoBehaviour
         float degrees = radians * Mathf.Rad2Deg;
         return degrees;
     }
+
+    public static IEnumerator StartFade(AudioSource audioSource, float duration, float targetVolume)
+    {
+        float currentTime = 0;
+        float start = audioSource.volume;
+
+        while (currentTime < duration)
+        {
+            currentTime += Time.deltaTime;
+            audioSource.volume = Mathf.Lerp(start, targetVolume, currentTime / duration);
+            yield return null;
+        }
+
+        if (targetVolume == 0)
+        {
+            audioSource.Stop();
+        }
+
+        yield break;
+    }
 }

@@ -5,7 +5,13 @@ using UnityEngine;
 
 public class MainShip : MonoBehaviour
 {
-    int totalScore = 0;
+    private int totalScore = 0;
+    private ShipPart mainShipPart;
+    
+    private void Awake()
+    {
+        mainShipPart = gameObject.GetComponent<ShipPart>();
+    }
     private void Update()
     {
         //if (Input.GetKeyDown("space"))
@@ -13,12 +19,13 @@ public class MainShip : MonoBehaviour
         //    int score = GetScore();
         //    print("Score:  " + score);
         //}
+
+
     }
 
     public int GetScore()
     {
-        ShipPart mainShipPart = gameObject.GetComponent<ShipPart>();
-        return BFSearch.Score(mainShipPart, mainShipPart) + totalScore;
+        return BFSearch.Score(mainShipPart, mainShipPart) + totalScore - mainShipPart.GetScore(mainShipPart);
 
     }
 

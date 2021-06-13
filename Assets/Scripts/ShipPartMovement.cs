@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(ThrustController2D))]
 public class ShipPartMovement : EffectsSoundDevice
 {
+    public bool scaleThrustersWithScore = true;
     private ThrustController2D controller;
 
     private bool thrustersAttached;
@@ -30,6 +31,7 @@ public class ShipPartMovement : EffectsSoundDevice
     private float thrusterVolume;
 
     private AudioSource thrusterSource;
+    private Coroutine audioFade;
 
     private void Awake()
     {
@@ -104,13 +106,28 @@ public class ShipPartMovement : EffectsSoundDevice
             thrusterTopLeft.Thrust();
         }
 
+<<<<<<< HEAD
         if((verticalAxis != 0 || horizontalAxis != 0) && !thrusterSource.isPlaying)
         {
             thrusterSource.Play();         
-        }
-        else
+=======
+
+        if (!thrusterSource.isPlaying && (verticalAxis != 0 || horizontalAxis != 0) )
         {
-            thrusterSource.Stop();
+
+            if (audioFade != null) {
+                StopCoroutine(audioFade);
+                audioFade = null;
+            }
+
+            thrusterSource.volume = thrusterVolume * PlayerPrefs.GetFloat("EffectsVolume");
+            thrusterSource.Play();        
+>>>>>>> e76bc34d489e4729ba4a367ac095f9910fc31105
+        }
+
+        if (audioFade == null && verticalAxis == 0 && horizontalAxis == 0)
+        {
+            audioFade = StartCoroutine(Utils.StartFade(thrusterSource, 0.3f, 0));
         }
     }
 
@@ -137,6 +154,11 @@ public class ShipPartMovement : EffectsSoundDevice
         thrusterTopRight.gameObject.SetActive(false);
         thrusterBottomLeft.gameObject.SetActive(false);
         thrusterBottomRight.gameObject.SetActive(false);
+
+        if (audioFade == null )
+        {
+            audioFade = StartCoroutine(Utils.StartFade(thrusterSource, 0.3f, 0));
+        }
     }
 
    

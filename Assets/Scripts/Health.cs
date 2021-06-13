@@ -34,7 +34,6 @@ public class Health : MonoBehaviour
 
     private void Die()
     {
-        Debug.Log("Died");
         OnDied?.Invoke(this, EventArgs.Empty);
         var entity = gameObject.GetComponent<Entity>();
         if (entity)
@@ -43,12 +42,35 @@ public class Health : MonoBehaviour
             var vfx = Instantiate(death, transform.position, transform.rotation);
             Destroy(vfx, 0.4f);
         }
+<<<<<<< HEAD
         
         foreach (SpriteRenderer sprite in GetComponents<SpriteRenderer>())
         {
             sprite.enabled = false;
         }
         GetComponent<Collider2D>().enabled = false;
+=======
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        Collider2D collider2D = GetComponent<Collider2D>();
+
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.enabled = false;
+        } else
+        {
+            Debug.LogWarning("No sprite renderer on: " + this.name);
+        }
+
+        if (collider2D != null)
+        {
+            collider2D.enabled = false;
+        }
+        else
+        {
+            Debug.LogWarning("No collider2D on: " + this.name);
+        }
+
+>>>>>>> e76bc34d489e4729ba4a367ac095f9910fc31105
         Destroy(gameObject, 0.5f);
     }
 
