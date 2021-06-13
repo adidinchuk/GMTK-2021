@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShipPart : MonoBehaviour, Graph<ShipPart>
+public class ShipPart : EffectsSoundDevice, Graph<ShipPart>
 {
     public int jointBreakingForce = 100;
     public float allowJointsTimerMax = 2f;
@@ -15,10 +15,28 @@ public class ShipPart : MonoBehaviour, Graph<ShipPart>
     private Rigidbody2D rigidbody2d;
     public int score = 100;
 
+    [SerializeField]
+    private AudioClip[] fuseSoundAray;
+    [SerializeField]
+    private float fuseVolume;
+
+    private AudioSource fuseSource;
+
+    [SerializeField]
+    private AudioClip[] breakSoundAray;
+    [SerializeField]
+    private float breakVolume;
+
+    private AudioSource breakSource;
+
+
     private void Awake()
     {
         collider2d = gameObject.GetComponent<Collider2D>();
         rigidbody2d = gameObject.GetComponent<Rigidbody2D>();
+        fuseSource = Utils.AddAudioNoFalloff(gameObject, null, false, false, fuseVolume * PlayerPrefs.GetFloat("EffectsVolume"), 1f);
+        breakSource = Utils.AddAudioNoFalloff(gameObject, null, false, false, breakVolume * PlayerPrefs.GetFloat("EffectsVolume"), 1f);
+
     }
 
     private void OnMouseEnter()
@@ -54,6 +72,12 @@ public class ShipPart : MonoBehaviour, Graph<ShipPart>
 
         ShipPart otherShipPart = col.gameObject.GetComponent<ShipPart>();
         if (otherShipPart == null) return;
+        FixedJoint2D joint = gameObject.AddComponent<FixedJoint2D>();
+        joint.connectedBody = col.rigidbody;
+        joint.breakForce = 100;
+        joint.breakTorque = 100;
+
+        playSound(fuseSoundAray, fuseSource);
 
         FixedJoint2D jointA = gameObject.AddComponent<FixedJoint2D>();
         jointA.connectedBody = col.rigidbody;
@@ -103,12 +127,26 @@ public class ShipPart : MonoBehaviour, Graph<ShipPart>
             Destroy(fixedJoints[i]);
         }
 
+        playSound(breakSoundAray, breakSource);
+
         // Send in random direction with collider2d disabled for a few seconds
         Vector2 direction = Utils.GetRandomDirection() ;
         float force = Random.Range(explosionForce.x, explosionForce.y) * rigidbody2d.mass;
         gameObject.GetComponent<Rigidbody2D>().AddForce(direction * force);
         allowJoints = false;
         allowJointsTimer = allowJointsTimerMax;
+    }
+
+    private void playSound(AudioClip[] array, AudioSource source)
+    {
+        source.clip = array[Random.Range(0, array.Length)];
+        source.Play();
+    }
+
+    override public void updateSound()
+    {
+        fuseSource.volume = fuseVolume * PlayerPrefs.GetFloat("EffectsVolume");
+        breakSource.volume = breakVolume * PlayerPrefs.GetFloat("EffectsVolume");
     }
 
     public int GetScore(ShipPart shipPart)
@@ -125,5 +163,6 @@ public class ShipPart : MonoBehaviour, Graph<ShipPart>
             ShipPart neighoringShipPart = fixedJoint.connectedBody.GetComponent<ShipPart>();
             yield return neighoringShipPart;
         }
+
     }
 }

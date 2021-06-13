@@ -187,6 +187,10 @@ MonoBehaviour:
   allowJointsTimerMax: 2
   explosionForce: {x: 30, y: 70}
   score: 100
+  fuseSoundAray: []
+  fuseVolume: 0
+  breakSoundAray: []
+  breakVolume: 0
 --- !u!114 &5786479419115872918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,6 +219,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63c3c13b2dc16fe4d82943c46feb7719, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thrusterSound: {fileID: 8300000, guid: 5ba5d4a437e56464ab173232d6590c06, type: 3}
+  thrusterVolume: 0.3
 --- !u!114 &7680706251217068185
 MonoBehaviour:
   m_ObjectHideFlags: 0

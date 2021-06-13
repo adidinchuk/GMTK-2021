@@ -13,6 +13,11 @@ public class LevelController : MonoBehaviour
     public Goal goalPrefab;
     public GameUI gameUI;
 
+
+
+    // Start is called before the first frame update
+
+
     public GameObject pauseMenu;
     public GameObject gameOverMenu;
 
@@ -31,6 +36,11 @@ public class LevelController : MonoBehaviour
     private int goalScoreIncrement = 150;
 
     private int level = 1;
+
+    private void Awake()
+    {
+        PlayerPrefs.SetFloat("EffectsVolume", 1f);
+    }
 
     private void Start()
     {
