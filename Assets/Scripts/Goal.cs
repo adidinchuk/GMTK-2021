@@ -4,7 +4,7 @@ using UnityEngine;
 public class Goal : MonoBehaviour
 {
     public float radius = 10f;
-    public event EventHandler GoalReached;
+    public event EventHandler OnGoalReached;
 
 
     private void Awake()
@@ -24,7 +24,7 @@ public class Goal : MonoBehaviour
         if (otherShipPart == null) return;
 
         // if col is our ship
-        GoalReached?.Invoke(this, EventArgs.Empty);
+        OnGoalReached?.Invoke(this, EventArgs.Empty);
     }
 
 }

@@ -11,7 +11,7 @@ public class Meteor : MonoBehaviour
     {      
         var health = collision.GetComponent<Health>();
         var entity = collision.GetComponent<Entity>(); ;
-        
+
         if (entity && health)
         {
             health.DealDamage(damage);
