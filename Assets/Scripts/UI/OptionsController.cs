@@ -17,12 +17,6 @@ public class OptionsController : MonoBehaviour
         effectsSlider.value = PlayerPrefs.GetFloat("EffectsVolume");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void updateMusicVolume()
     {
         PlayerPrefs.SetFloat("MusicVolume", musicSlider.value);
@@ -33,7 +27,7 @@ public class OptionsController : MonoBehaviour
     {
         PlayerPrefs.SetFloat("EffectsVolume", musicSlider.value);
         EffectsSoundDevice[] gameSounds = (EffectsSoundDevice[])GameObject.FindObjectsOfType(typeof(EffectsSoundDevice));
-        Debug.Log("FOUND " + gameSounds.Length + " OBJECTS");
+        //Debug.Log("FOUND " + gameSounds.Length + " OBJECTS");
         for (int i = 0; i < gameSounds.Length; i++)
         {
             gameSounds[i].updateSound();

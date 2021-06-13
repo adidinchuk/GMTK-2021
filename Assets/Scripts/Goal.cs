@@ -3,14 +3,16 @@ using UnityEngine;
 
 public class Goal : MonoBehaviour
 {
-    private int targetScore;
-
     public event EventHandler OnGoalReached;
+    
+    private int targetWeight;
     private bool goalReached = false;
 
 
+
+
     // TODO: Add a visual for the current goal
-    public static Goal Create(Vector3 position, float radius, int targetScore) {
+    public static Goal Create(Vector3 position, float radius, int targetWeight) {
         var angle = UnityEngine.Random.Range(0, 1f) * Mathf.PI * 2;
 
         float x = Mathf.Cos(angle) * radius;
@@ -22,18 +24,22 @@ public class Goal : MonoBehaviour
         Transform goalTransform = Instantiate(pfGoal, spawnPosition, Quaternion.identity);
 
         Goal goal = goalTransform.GetComponent<Goal>();
-        goal.SetTargetScore(targetScore);
+       goal.targetWeight = targetWeight;
 
         return goal;
     }
 
-    public void SetTargetScore(int targetScore)
+    //public void SetTargetWeight(int targetWeight)
+    //{
+    //   
+    //}
+
+    public int GetTargetWeight()
     {
-        this.targetScore = targetScore;
+        return this.targetWeight;
     }
 
 
-    
 
     void OnTriggerEnter2D(Collider2D col)
     {
@@ -41,11 +47,11 @@ public class Goal : MonoBehaviour
         if (mainShip == null || goalReached) return;
 
         // if col is our ship
-        if (mainShip.GetScore() >= targetScore) { 
+        if (mainShip.GetCarriedWeight() >= targetWeight) { 
             goalReached = true;
             OnGoalReached?.Invoke(this, EventArgs.Empty);
         } else {
-            Debug.Log("Score too low, required: " + targetScore);
+            Debug.Log("Score too low, required: " + targetWeight);
             
                     }
     }

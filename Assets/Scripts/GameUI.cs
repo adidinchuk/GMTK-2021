@@ -6,9 +6,11 @@ public class GameUI : MonoBehaviour
 
     public float goalIndicatorRadius = 300f;
 
+    private Goal goal;
     private Vector3 goalPosition;
     private RectTransform goalPositionIndicator;
     private TextMeshProUGUI goalDistanceText;
+    private TextMeshProUGUI weightText;
     private TextMeshProUGUI scoreText;
 
     private float checkScoreTimer = 0f;
@@ -20,6 +22,7 @@ public class GameUI : MonoBehaviour
     {
         goalPositionIndicator = transform.Find("goalPositionIndicator").GetComponent<RectTransform>();
         goalDistanceText = transform.Find("distanceText").GetComponent<TextMeshProUGUI>();
+        weightText = transform.Find("weightText").GetComponent<TextMeshProUGUI>();
         scoreText = transform.Find("scoreText").GetComponent<TextMeshProUGUI>();
     }
 
@@ -28,9 +31,10 @@ public class GameUI : MonoBehaviour
     {
         this.mainShip = mainShip;
     }
-    public void SetGoal(Vector3 goalPosition)
+    public void SetGoal(Goal goal)
     {
-        this.goalPosition = goalPosition;
+        this.goal = goal;
+        this.goalPosition = goal.transform.position;
     }
 
     // Update is called once per frame
@@ -48,8 +52,15 @@ public class GameUI : MonoBehaviour
 
         if (checkScoreTimer <= checkScoreTimerMax)
         {
-            int score = mainShip.GetScore();
-            scoreText.SetText(score.ToString() + " kg");
+            int totalWeightDelivered = mainShip.GetTotalWeightDelivered();
+            int carriedWeight = mainShip.GetCarriedWeight();
+            int targetWeight = goal.GetTargetWeight();
+
+            string weightMsg = $"{carriedWeight} Kg / {targetWeight} Kg";
+            string scoreMsg = totalWeightDelivered > 0 ? $"{totalWeightDelivered} Kg Delivered" : "";
+
+            weightText.SetText(weightMsg);
+            scoreText.SetText(scoreMsg);
             checkScoreTimer += checkScoreTimerMax; 
         }
 
