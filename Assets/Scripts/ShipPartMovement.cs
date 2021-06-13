@@ -30,6 +30,7 @@ public class ShipPartMovement : EffectsSoundDevice
     private float thrusterVolume;
 
     private AudioSource thrusterSource;
+    private Coroutine audioFade;
 
     private void Awake()
     {
@@ -104,14 +105,22 @@ public class ShipPartMovement : EffectsSoundDevice
             thrusterTopLeft.Thrust();
         }
 
-        if(verticalAxis!=0 && horizontalAxis != 0 && !thrusterSource.isPlaying)
+
+        if (!thrusterSource.isPlaying && (verticalAxis != 0 || horizontalAxis != 0) )
         {
-            thrusterSource.Play();
-            Debug.Log("PLAYING THRUSTERS");
+
+            if (audioFade != null) {
+                StopCoroutine(audioFade);
+                thrusterSource.volume = thrusterVolume * PlayerPrefs.GetFloat("EffectsVolume");
+                audioFade = null;
+            }
+
+            thrusterSource.Play();        
         }
-        else
+
+        if (audioFade == null && verticalAxis == 0 && horizontalAxis == 0)
         {
-            thrusterSource.Stop();
+            audioFade = StartCoroutine(Utils.StartFade(thrusterSource, 0.3f, 0));
         }
     }
 
