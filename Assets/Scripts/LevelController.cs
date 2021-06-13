@@ -106,7 +106,8 @@ public class LevelController : MonoBehaviour
         mainShip.Jettison();
 
         // Spawn next planet
-        Goal.Create(mainShipInstance.transform.position, baseGoalDistance + (goalDistanceIncrement * level), baseGoalScore + (goalScoreIncrement * level));
+        Goal goal = Goal.Create(mainShipInstance.transform.position, baseGoalDistance + (goalDistanceIncrement * level), baseGoalScore + (goalScoreIncrement * level));
+        gameUI.SetGoal(goal.transform.position);
         
         // Increase difficulty
         level++;

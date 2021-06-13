@@ -158,9 +158,23 @@ public class ShipPart : EffectsSoundDevice, Graph<ShipPart>
         FixedJoint2D[] fixedJoints = shipPart.GetComponents<FixedJoint2D>();
 
 
-        foreach (FixedJoint2D fixedJoint in fixedJoints)
-        {
-            ShipPart neighoringShipPart = fixedJoint.connectedBody.GetComponent<ShipPart>();
+        foreach (FixedJoint2D fixedJoint in fixedJoints) { 
+
+            Rigidbody2D connectedBody = fixedJoint.connectedBody;
+
+            if (!connectedBody)
+            {
+                Destroy(fixedJoint);
+                continue;
+            }
+
+            ShipPart neighoringShipPart = connectedBody.GetComponent<ShipPart>();
+            if (!neighoringShipPart)
+            {
+                Destroy(fixedJoint);
+                continue;
+            }
+            
             yield return neighoringShipPart;
         }
 
