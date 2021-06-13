@@ -37,8 +37,12 @@ public class LevelController : MonoBehaviour
 
     private void Start()
     {
+        MusicManager instance = MusicManager.getInstance();
+        if (instance != null)
+        {
+            instance.updateMusic(BGM);
+        }
 
-        MusicManager.getInstance().updateMusic(BGM);
         // Spawn main ship
         mainShipInstance = Instantiate(mainShipPrefab.gameObject);
         mainShip = mainShipInstance.GetComponent<MainShip>();
