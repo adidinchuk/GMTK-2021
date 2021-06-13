@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 5669807556860936156}
   - component: {fileID: 5669807556860936155}
   m_Layer: 0
-  m_Name: Goal
+  m_Name: pfGoal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

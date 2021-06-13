@@ -5,7 +5,7 @@ using UnityEngine;
 public static class BFSearch
     
 {
-    public static int Search(Graph<ShipPart> graph, ShipPart start)
+    public static int Score(Graph<ShipPart> graph, ShipPart start)
     {
         var frontier = new Queue<ShipPart>();
         frontier.Enqueue(start);
@@ -31,5 +31,33 @@ public static class BFSearch
         }
 
         return score;
+    }
+
+    public static HashSet<ShipPart> Search(Graph<ShipPart> graph, ShipPart start)
+    {
+        var frontier = new Queue<ShipPart>();
+        frontier.Enqueue(start);
+
+        var reached = new HashSet<ShipPart>();
+        reached.Add(start);
+
+
+        while (frontier.Count > 0)
+        {
+            var current = frontier.Dequeue();
+
+            foreach (var next in graph.Neighbors(current))
+            {
+                if (!reached.Contains(next))
+                {
+                    frontier.Enqueue(next);
+                    reached.Add(next);
+                }
+            }
+        }
+
+
+     
+        return reached;
     }
 }

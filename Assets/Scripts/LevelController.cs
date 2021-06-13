@@ -16,18 +16,25 @@ public class LevelController : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject gameOverMenu;
 
-    private GameObject goalInstance;
+    private Transform goalTransform;
+    private MainShip mainShip;
+
     private GameObject mainShipInstance;
     private GameObject meteorSpawnerInstance;
     private GameObject shipPartSpawnerInstance;
 
+
+    private int curScoreTarget = 300;
+    private int scoreIncrement = 300;
+    private int level = 1;
+
     private void Start()
     {
-        // instantiate a victory location
-        goalInstance = Instantiate(goalPrefab.gameObject);
+
 
         // Spawn main ship
         mainShipInstance = Instantiate(mainShipPrefab.gameObject);
+        mainShip = mainShipInstance.GetComponent<MainShip>();
         vcam.Follow = mainShipInstance.transform;
 
         // Start spawners
@@ -40,16 +47,16 @@ public class LevelController : MonoBehaviour
         // Spawn stars / Background?
 
 
-        // Setup UI
-        gameUI.SetGoal(goalInstance.transform.position);
-        gameUI.SetMainShip(mainShipInstance.GetComponent<MainShip>());
+        // instantiate a victory location
+        Goal goal = Goal.Create(mainShipInstance.transform.position, 10f, curScoreTarget);
+        goal.OnGoalReached += LevelController_GoalReached;
 
-        // Hide menues
-        pauseMenu.SetActive(false);
-        gameOverMenu.SetActive(false);
+        // Setup UI
+        gameUI.SetGoal(goal.transform.position);
+        gameUI.SetMainShip(mainShip);
+
 
         // Register for events
-        goalInstance.GetComponent<Goal>().OnGoalReached += LevelController_GoalReached;
         mainShipInstance.GetComponent<Health>().OnDied += LevelController_OnDied;
     }
 
@@ -64,8 +71,7 @@ public class LevelController : MonoBehaviour
 
     private void LevelController_GoalReached(object sender, System.EventArgs e)
     {
-        Debug.Log("Level Won!");
-        LevelWon();
+         LevelWon();    
     }
     private void LevelController_OnDied(object sender, System.EventArgs e)
     {
@@ -82,8 +88,16 @@ public class LevelController : MonoBehaviour
 
     public void LevelWon()
     {
-        Time.timeScale = 0;
-        gameOverMenu.SetActive(true);
+        // Increase Target
+        curScoreTarget = 300;
+
+        // Spawn next planet
+        Goal.Create(mainShipInstance.transform.position, 10f, curScoreTarget + (scoreIncrement * ++level));
+
+        // Destroy all attached objects
+        mainShip.Jettison();
+
+        // Increase spawn rates?
     }
 
     public void Pause()

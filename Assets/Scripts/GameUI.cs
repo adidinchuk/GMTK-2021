@@ -12,7 +12,7 @@ public class GameUI : MonoBehaviour
     private TextMeshProUGUI scoreText;
 
     private float checkScoreTimer = 0f;
-    private float checkScoreTimerMax = 0.5f;
+    private float checkScoreTimerMax = 0.2f;
 
     private MainShip mainShip;
 
