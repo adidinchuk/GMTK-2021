@@ -24,21 +24,12 @@ public class ShipPart : EffectsSoundDevice, Graph<ShipPart>
 
     private AudioSource fuseSource;
 
-    [SerializeField]
-    private AudioClip[] breakSoundAray;
-    [SerializeField]
-    private float breakVolume;
-
-    private AudioSource breakSource;
-
 
     private void Awake()
     {
         collider2d = gameObject.GetComponent<Collider2D>();
         rigidbody2d = gameObject.GetComponent<Rigidbody2D>();
         fuseSource = Utils.AddAudioNoFalloff(gameObject, null, false, false, fuseVolume * PlayerPrefs.GetFloat("EffectsVolume"), 1f, 4, 14);
-        breakSource = Utils.AddAudioNoFalloff(gameObject, null, false, false, breakVolume * PlayerPrefs.GetFloat("EffectsVolume"), 1f, 4, 14);
-
     }
 
     private void OnMouseEnter()
@@ -123,9 +114,7 @@ public class ShipPart : EffectsSoundDevice, Graph<ShipPart>
             }
 
             Destroy(fixedJoints[i]);
-        }
-
-        PlaySound(breakSoundAray, breakSource);
+        }        
 
         // Send in random direction with collider2d disabled for a few seconds
         Vector2 direction = Utils.GetRandomDirection() ;
@@ -150,7 +139,6 @@ public class ShipPart : EffectsSoundDevice, Graph<ShipPart>
     override public void updateSound()
     {
         fuseSource.volume = fuseVolume * PlayerPrefs.GetFloat("EffectsVolume");
-        breakSource.volume = breakVolume * PlayerPrefs.GetFloat("EffectsVolume");
     }
 
     public int GetScore(ShipPart shipPart)

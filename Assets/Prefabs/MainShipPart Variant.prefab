@@ -422,6 +422,18 @@ PrefabInstance:
       propertyPath: health
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 4688123115860920724, guid: 3e5a8c25365d3584385f79206cee4f7a, type: 3}
+      propertyPath: breakVolume
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4688123115860920724, guid: 3e5a8c25365d3584385f79206cee4f7a, type: 3}
+      propertyPath: breakSoundAray.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4688123115860920724, guid: 3e5a8c25365d3584385f79206cee4f7a, type: 3}
+      propertyPath: breakSoundAray.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: af9bdb6008d66a1429dd8d5dc74691fa, type: 3}
     - target: {fileID: 5198138723919772393, guid: 3e5a8c25365d3584385f79206cee4f7a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.151
@@ -572,11 +584,11 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: af9bdb6008d66a1429dd8d5dc74691fa, type: 3}
     - target: {fileID: 5786479419115872918, guid: 3e5a8c25365d3584385f79206cee4f7a, type: 3}
       propertyPath: maxMoveSpeed
-      value: 100
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 5786479419115872918, guid: 3e5a8c25365d3584385f79206cee4f7a, type: 3}
       propertyPath: moveAcceleration
-      value: 200
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 5786479419115872918, guid: 3e5a8c25365d3584385f79206cee4f7a, type: 3}
       propertyPath: turnAcceleration

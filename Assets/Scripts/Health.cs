@@ -3,14 +3,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Health : MonoBehaviour
+public class Health : EffectsSoundDevice
 {
     public event EventHandler OnDamaged;
     public event EventHandler OnDied;
 
+    [SerializeField]
+    private AudioClip[] breakSoundAray;
+    [SerializeField]
+    private float breakVolume;
+
+    private AudioSource breakSource;
+
 
     [SerializeField] float health = 100f;
     float startHealth;
+
+    private void Awake()
+    {
+        breakSource = Utils.AddAudioNoFalloff(gameObject, null, false, false, breakVolume * PlayerPrefs.GetFloat("EffectsVolume"), 1f, 4, 14);
+    }
 
     private void Start()
     {
@@ -32,6 +44,19 @@ public class Health : MonoBehaviour
 
     }
 
+    private void PlaySound(AudioClip[] audioClips, AudioSource source)
+    {
+        if (audioClips.Length > 0)
+        {
+            source.clip = audioClips[UnityEngine.Random.Range(0, audioClips.Length)];
+            source.Play();
+        }
+        else
+        {
+            Debug.LogWarning("Tried to play audio clips but none exist on gameobject: " + this.name);
+        }
+    }
+
     private void Die()
     {
         OnDied?.Invoke(this, EventArgs.Empty);
@@ -40,7 +65,10 @@ public class Health : MonoBehaviour
         {
             var death = entity.GetDeathAnimation();
             var vfx = Instantiate(death, transform.position, transform.rotation);
-            Destroy(vfx, 0.4f);
+            PlaySound(breakSoundAray, breakSource);
+            Debug.Log("DESTROYING");
+            Destroy(vfx, 0.6f);
+            
         }
 
         foreach (SpriteRenderer sprite in GetComponents<SpriteRenderer>())
@@ -72,5 +100,10 @@ public class Health : MonoBehaviour
         {
             renderer.color = new Color(health / startHealth, health / startHealth, health / startHealth, 1f);
         }
+    }
+
+    override public void updateSound()
+    {
+        breakSource.volume = breakVolume * PlayerPrefs.GetFloat("EffectsVolume");
     }
 }

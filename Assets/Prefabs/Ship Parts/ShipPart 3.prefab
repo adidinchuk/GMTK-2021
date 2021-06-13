@@ -606,11 +606,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d82f6562e16be5348b6b9e723381d8db, type: 3}
   - {fileID: 8300000, guid: 999dcc5a56bd7d2408fa4819783ee245, type: 3}
   fuseVolume: 0.4
-  breakSoundAray:
-  - {fileID: 8300000, guid: 1f3e9dd993d8d154ea402ba9d9285dd0, type: 3}
-  - {fileID: 8300000, guid: d21abf55fde5558419b0ab86d50d1b6e, type: 3}
-  - {fileID: 8300000, guid: 4c2bfe0889eeb6f44887724efab02ffd, type: 3}
-  breakVolume: 0.3
 --- !u!114 &5786479419115872918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -667,6 +662,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e02f7d3add599c47a923b13d88d4203, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  breakSoundAray:
+  - {fileID: 8300000, guid: 1f3e9dd993d8d154ea402ba9d9285dd0, type: 3}
+  - {fileID: 8300000, guid: d21abf55fde5558419b0ab86d50d1b6e, type: 3}
+  - {fileID: 8300000, guid: 4c2bfe0889eeb6f44887724efab02ffd, type: 3}
+  breakVolume: 1
   health: 10
 --- !u!114 &5720156707287169321
 MonoBehaviour:
