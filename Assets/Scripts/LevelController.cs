@@ -64,7 +64,7 @@ public class LevelController : MonoBehaviour
         goal.OnGoalReached += LevelController_GoalReached;
 
         // Setup UI
-        gameUI.SetGoal(goal.transform.position);
+        gameUI.SetGoal(goal);
         gameUI.SetMainShip(mainShip);
 
 
@@ -75,19 +75,19 @@ public class LevelController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Escape))
         {
             Pause();
+
         }
     }
 
     private void LevelController_GoalReached(object sender, System.EventArgs e)
     {
-         LevelWon();    
+        LevelWon();
     }
     private void LevelController_OnDied(object sender, System.EventArgs e)
     {
-        Debug.Log("Level Lost!");
         LevelLost();
     }
 
@@ -105,8 +105,8 @@ public class LevelController : MonoBehaviour
 
         // Spawn next planet
         Goal goal = Goal.Create(mainShipInstance.transform.position, baseGoalDistance + (goalDistanceIncrement * level), baseGoalScore + (goalScoreIncrement * level));
-        gameUI.SetGoal(goal.transform.position);
-        
+        gameUI.SetGoal(goal);
+
         // Increase difficulty
         level++;
 

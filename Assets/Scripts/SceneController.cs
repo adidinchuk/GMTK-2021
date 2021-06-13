@@ -5,8 +5,14 @@ using System.Collections.Generic;
 
 public class SceneController: MonoBehaviour {
 
+	public static SceneController Instance { get; private set; }
 
-	public void LoadLevel(string name){
+    private void Awake()
+    {
+		Instance = this;
+    }
+
+    public void LoadLevel(string name){
 		Debug.Log ("Load level requested for: " + name);
         SceneManager.LoadScene(name);
     }
@@ -24,13 +30,7 @@ public class SceneController: MonoBehaviour {
         
 	}
 
-	public void loadOptionsMenu(){
-		SceneManager.LoadScene("Options", LoadSceneMode.Additive);
-	}
 
-	public void unloadOptionsMenu(){
-		SceneManager.UnloadSceneAsync("Options");
-	}
 
 	public void reloadLevel(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
