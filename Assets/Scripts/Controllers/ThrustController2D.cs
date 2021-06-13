@@ -40,19 +40,8 @@ public class ThrustController2D : MonoBehaviour
         }
 
         currentSpeed = rb.velocity.magnitude;
-    }
-
-
-    private void EnableMovement()
-    {
-        rb.constraints = RigidbodyConstraints2D.None;
 
     }
 
 
-    private void DisableMovement()
-    {
-        rb.constraints = RigidbodyConstraints2D.FreezeAll;
-
-    }
 }

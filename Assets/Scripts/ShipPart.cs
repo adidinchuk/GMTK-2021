@@ -15,6 +15,8 @@ public class ShipPart : EffectsSoundDevice, Graph<ShipPart>
     private Rigidbody2D rigidbody2d;
     public int score = 100;
 
+
+    
     [SerializeField]
     private AudioClip[] fuseSoundAray;
     [SerializeField]
@@ -72,12 +74,8 @@ public class ShipPart : EffectsSoundDevice, Graph<ShipPart>
 
         ShipPart otherShipPart = col.gameObject.GetComponent<ShipPart>();
         if (otherShipPart == null) return;
-        FixedJoint2D joint = gameObject.AddComponent<FixedJoint2D>();
-        joint.connectedBody = col.rigidbody;
-        joint.breakForce = 100;
-        joint.breakTorque = 100;
 
-        playSound(fuseSoundAray, fuseSource);
+        PlaySound(fuseSoundAray, fuseSource);
 
         FixedJoint2D jointA = gameObject.AddComponent<FixedJoint2D>();
         jointA.connectedBody = col.rigidbody;
@@ -127,7 +125,7 @@ public class ShipPart : EffectsSoundDevice, Graph<ShipPart>
             Destroy(fixedJoints[i]);
         }
 
-        playSound(breakSoundAray, breakSource);
+        PlaySound(breakSoundAray, breakSource);
 
         // Send in random direction with collider2d disabled for a few seconds
         Vector2 direction = Utils.GetRandomDirection() ;
@@ -137,10 +135,16 @@ public class ShipPart : EffectsSoundDevice, Graph<ShipPart>
         allowJointsTimer = allowJointsTimerMax;
     }
 
-    private void playSound(AudioClip[] array, AudioSource source)
+    private void PlaySound(AudioClip[] audioClips, AudioSource source)
     {
-        source.clip = array[Random.Range(0, array.Length)];
-        source.Play();
+        if (audioClips.Length > 0)
+        {
+            source.clip = audioClips[Random.Range(0, audioClips.Length)];
+            source.Play();
+        } else
+        {
+            Debug.LogWarning("Tried to play audio clips but none exist on gameobject: " + this.name);
+        }
     }
 
     override public void updateSound()
@@ -151,7 +155,8 @@ public class ShipPart : EffectsSoundDevice, Graph<ShipPart>
 
     public int GetScore(ShipPart shipPart)
     {
-        return score;
+
+        return (int)rigidbody2d.mass * 10;
     }
     public IEnumerable<ShipPart> Neighbors(ShipPart shipPart)
     {

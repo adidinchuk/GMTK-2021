@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(ThrustController2D))]
 public class ShipPartMovement : EffectsSoundDevice
 {
+    public bool scaleThrustersWithScore = true;
     private ThrustController2D controller;
 
     private bool thrustersAttached;
@@ -111,10 +112,10 @@ public class ShipPartMovement : EffectsSoundDevice
 
             if (audioFade != null) {
                 StopCoroutine(audioFade);
-                thrusterSource.volume = thrusterVolume * PlayerPrefs.GetFloat("EffectsVolume");
                 audioFade = null;
             }
 
+            thrusterSource.volume = thrusterVolume * PlayerPrefs.GetFloat("EffectsVolume");
             thrusterSource.Play();        
         }
 
@@ -147,6 +148,11 @@ public class ShipPartMovement : EffectsSoundDevice
         thrusterTopRight.gameObject.SetActive(false);
         thrusterBottomLeft.gameObject.SetActive(false);
         thrusterBottomRight.gameObject.SetActive(false);
+
+        if (audioFade == null )
+        {
+            audioFade = StartCoroutine(Utils.StartFade(thrusterSource, 0.3f, 0));
+        }
     }
 
    
