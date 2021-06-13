@@ -4,7 +4,7 @@ using TMPro;
 public class GameUI : MonoBehaviour
 {
 
-    public float goalIndicatorRadius = 300f;
+    public float goalIndicatorRadius = 100f;
 
     private Goal goal;
     private Vector3 goalPosition;

@@ -52,8 +52,8 @@ MonoBehaviour:
   - {fileID: 5786479419115872913, guid: e9d0e0b6f742dc444b02244e0acd032e, type: 3}
   minVelocity: 10
   maxVelocity: 20
-  minSpawnDelay: 2
-  maxSpawnDelay: 5
+  minSpawnDelay: 0
+  maxSpawnDelay: 1
   zAxisRandomization: 1
   zAxisRotation: 1
   maxZAxisRotationSpeed: 20

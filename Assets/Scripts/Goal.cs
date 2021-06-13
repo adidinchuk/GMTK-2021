@@ -25,17 +25,29 @@ public class Goal : MonoBehaviour
         Transform goalTransform = Instantiate(pfGoal, spawnPosition, Quaternion.identity);
 
         Goal goal = goalTransform.GetComponent<Goal>();
-       goal.targetWeight = targetWeight;
-
+        goal.SetTargetWeight(targetWeight);
         return goal;
+    }
+
+    private void SetTargetWeight(int targetWeight)
+    {
+        this.targetWeight = targetWeight;
+        this.goalReached = false;
     }
 
     public void Awake()
     {
+       
         if (sprites.Length > 0) {
 
             spriteRenderer = transform.Find("sprite").GetComponent<SpriteRenderer>();
             spriteRenderer.sprite = sprites[UnityEngine.Random.Range(0, sprites.Length)];
+
+            //float colliderRadius = spriteRenderer.sprite.rect.width;
+
+            //CircleCollider2D collider = transform.GetComponent<CircleCollider2D>();
+            //collider.radius = colliderRadius;
+
         } 
         else
         {
@@ -58,13 +70,16 @@ public class Goal : MonoBehaviour
         if (mainShip == null || goalReached) return;
 
         // if col is our ship
+
+        Debug.Log(mainShip.GetCarriedWeight());
+        Debug.Log(targetWeight);
         if (mainShip.GetCarriedWeight() >= targetWeight) { 
             goalReached = true;
             OnGoalReached?.Invoke(this, EventArgs.Empty);
         } else {
             Debug.Log("Score too low, required: " + targetWeight);
             
-                    }
+        }
     }
 
 }
