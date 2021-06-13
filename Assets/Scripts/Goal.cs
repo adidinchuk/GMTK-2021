@@ -16,8 +16,12 @@ public class Goal : MonoBehaviour
     public static Goal Create(Vector3 position, float radius, int targetWeight) {
         var angle = UnityEngine.Random.Range(0, 1f) * Mathf.PI * 2;
 
+        Debug.Log(radius);
         float x = Mathf.Cos(angle) * radius;
         float y = Mathf.Sin(angle) * radius;
+
+        Debug.Log(x);
+        Debug.Log(y);
 
         Vector3 spawnPosition = new Vector3(x + position.x, y + position.y);
 

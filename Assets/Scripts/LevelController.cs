@@ -26,8 +26,8 @@ public class LevelController : MonoBehaviour
     private GameObject shipPartSpawnerInstance;
     public TextMeshProUGUI finalScore;
 
-    private float baseGoalDistance = 25f;
-    private float goalDistanceIncrement = 15f;
+    private float baseGoalDistance = 30f;
+    private float goalDistanceIncrement = 20f;
 
     private int baseGoalScore = 300;
     private int goalScoreIncrement = 150;
@@ -61,7 +61,7 @@ public class LevelController : MonoBehaviour
 
 
         // instantiate a victory location
-        Goal goal = Goal.Create(mainShipInstance.transform.position, 10f, baseGoalScore);
+        Goal goal = Goal.Create(mainShipInstance.transform.position, baseGoalDistance + (goalDistanceIncrement * level), baseGoalScore);
         goal.OnGoalReached += LevelController_GoalReached;
 
         // Setup UI
@@ -113,8 +113,8 @@ public class LevelController : MonoBehaviour
 
         // Spawn next planet
         Goal goal = Goal.Create(mainShipInstance.transform.position, baseGoalDistance + (goalDistanceIncrement * level), baseGoalScore + (goalScoreIncrement * level));
-        gameUI.SetGoal(goal);
         goal.OnGoalReached += LevelController_GoalReached;
+        gameUI.SetGoal(goal);
 
         // Increase difficulty
         level++;
