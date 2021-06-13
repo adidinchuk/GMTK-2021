@@ -13,11 +13,6 @@ public class LevelController : MonoBehaviour
     public Goal goalPrefab;
     public GameUI gameUI;
 
-
-
-    // Start is called before the first frame update
-
-
     public GameObject pauseMenu;
     public GameObject gameOverMenu;
 
