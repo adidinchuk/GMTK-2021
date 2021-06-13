@@ -110,8 +110,8 @@ public class LevelController : MonoBehaviour
 
         // Increase difficulty
         level++;
-
-
+        meteorSpawnerPrefab.minSpawnDelay -= 0.5f;
+        meteorSpawnerPrefab.maxSpawnDelay -= 1;
         // TODO: Increase spawn rates on spawners?
     }
 
