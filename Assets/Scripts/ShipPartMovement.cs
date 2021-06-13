@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(ThrustController2D))]
 public class ShipPartMovement : EffectsSoundDevice
@@ -60,8 +61,13 @@ public class ShipPartMovement : EffectsSoundDevice
     // Update is called once per frame
     private void Update()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            thrusterSource.Stop();
+            return;
+        }
 
-        if (Input.GetMouseButtonDown(0))
+        if ( Input.GetMouseButtonDown(0))
         {
             if (mouseOver)
             {
@@ -119,13 +125,21 @@ public class ShipPartMovement : EffectsSoundDevice
             thrusterSource.volume = thrusterVolume * PlayerPrefs.GetFloat("EffectsVolume");
             thrusterSource.Play();        
         }
+        
+        if (verticalAxis == 0 && horizontalAxis == 0) { 
+             FadeOutThrusters();
+        }
 
-        if (audioFade == null && verticalAxis == 0 && horizontalAxis == 0)
+    }
+
+    private void FadeOutThrusters()
+    {
+
+        if (audioFade == null)
         {
             audioFade = StartCoroutine(Utils.StartFade(thrusterSource, 0.3f, 0));
         }
     }
-
 
 
     private void FixedUpdate()
@@ -150,10 +164,7 @@ public class ShipPartMovement : EffectsSoundDevice
         thrusterBottomLeft.gameObject.SetActive(false);
         thrusterBottomRight.gameObject.SetActive(false);
 
-        if (audioFade == null )
-        {
-            audioFade = StartCoroutine(Utils.StartFade(thrusterSource, 0.3f, 0));
-        }
+        FadeOutThrusters();
     }
 
    
