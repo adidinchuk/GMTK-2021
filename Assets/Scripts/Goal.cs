@@ -37,15 +37,15 @@ public class Goal : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        MainShip otherShipPart = col.gameObject.GetComponent<MainShip>();
-        if (otherShipPart == null || goalReached) return;
+        MainShip mainShip = col.gameObject.GetComponent<MainShip>();
+        if (mainShip == null || goalReached) return;
 
         // if col is our ship
-        if (otherShipPart.GetScore() > targetScore) { 
-            OnGoalReached?.Invoke(this, EventArgs.Empty);
+        if (mainShip.GetScore() > targetScore) { 
             goalReached = true;
+            OnGoalReached?.Invoke(this, EventArgs.Empty);
         } else {
-            // Flash the text of the goal
+            Debug.Log("Score too low, required: " + targetScore);
             
 
         }

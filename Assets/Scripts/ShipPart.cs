@@ -122,7 +122,7 @@ public class ShipPart : MonoBehaviour, Graph<ShipPart>
 
         foreach (FixedJoint2D fixedJoint in fixedJoints)
         {
-            ShipPart neighoringShipPart = fixedJoint.connectedBody.gameObject.GetComponent<ShipPart>();
+            ShipPart neighoringShipPart = fixedJoint.connectedBody.GetComponent<ShipPart>();
             yield return neighoringShipPart;
         }
     }

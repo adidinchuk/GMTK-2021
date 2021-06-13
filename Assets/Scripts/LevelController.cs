@@ -24,8 +24,12 @@ public class LevelController : MonoBehaviour
     private GameObject shipPartSpawnerInstance;
 
 
-    private int curScoreTarget = 300;
-    private int scoreIncrement = 300;
+    private float baseGoalDistance = 15f;
+    private float goalDistanceIncrement = 10f;
+
+    private int baseGoalScore = 300;
+    private int goalScoreIncrement = 150;
+
     private int level = 1;
 
     private void Start()
@@ -48,7 +52,7 @@ public class LevelController : MonoBehaviour
 
 
         // instantiate a victory location
-        Goal goal = Goal.Create(mainShipInstance.transform.position, 10f, curScoreTarget);
+        Goal goal = Goal.Create(mainShipInstance.transform.position, 10f, baseGoalScore);
         goal.OnGoalReached += LevelController_GoalReached;
 
         // Setup UI
@@ -88,16 +92,17 @@ public class LevelController : MonoBehaviour
 
     public void LevelWon()
     {
-        // Increase Target
-        curScoreTarget = 300;
-
-        // Spawn next planet
-        Goal.Create(mainShipInstance.transform.position, 10f, curScoreTarget + (scoreIncrement * ++level));
-
         // Destroy all attached objects
         mainShip.Jettison();
 
-        // Increase spawn rates?
+        // Spawn next planet
+        Goal.Create(mainShipInstance.transform.position, baseGoalDistance + (goalDistanceIncrement * level), baseGoalScore + (goalScoreIncrement * level));
+        
+        // Increase difficulty
+        level++;
+
+
+        // TODO: Increase spawn rates on spawners?
     }
 
     public void Pause()

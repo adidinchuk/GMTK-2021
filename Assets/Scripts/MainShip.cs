@@ -29,11 +29,17 @@ public class MainShip : MonoBehaviour
         
         foreach (ShipPart shipPart in reached)
         {
-            if (shipPart.gameObject.GetInstanceID() != this.GetInstanceID())
+            if (shipPart != mainShipPart)
             {
                 totalScore += shipPart.GetScore(shipPart);
                 Destroy(shipPart);
             }
+        }
+
+        FixedJoint2D[] joints = mainShipPart.gameObject.GetComponents<FixedJoint2D>();
+        for (int i = 0; i < joints.Length; i++)
+        {
+            Destroy(joints[i]);
         }
 
     }
