@@ -32,7 +32,7 @@ public class SceneController: MonoBehaviour {
 
 
 
-	public void reloadLevel(){
+	public void ReloadLevel(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 }

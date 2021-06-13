@@ -3076,6 +3076,22 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2274294297022644717, guid: 0c96d499ec5c83c498686ebc85ed28f4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 495014185}
+    - target: {fileID: 2274294297022644717, guid: 0c96d499ec5c83c498686ebc85ed28f4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 2274294297022644717, guid: 0c96d499ec5c83c498686ebc85ed28f4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LevelController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2274294297022644717, guid: 0c96d499ec5c83c498686ebc85ed28f4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3358594818116592695, guid: 0c96d499ec5c83c498686ebc85ed28f4, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0.5
